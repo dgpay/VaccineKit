@@ -1,52 +1,74 @@
 package academy.bangkit.project.capstone.vaccinekit
 
-import academy.bangkit.project.capstone.vaccinekit.auth.RegisterActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityMainBinding
-import android.content.Intent
+import academy.bangkit.project.capstone.vaccinekit.home.HomeFragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
+import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity() {
-    
-    var mAuth = FirebaseAuth.getInstance()
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
     private lateinit var binding: ActivityMainBinding
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.loginBtn.setOnClickListener {
-            login()
-        }
-        binding.regTxt.setOnClickListener{
-            register()
-        }
-    }
+        setSupportActionBar(binding.appBarMain.toolbar)
 
-    private fun login() {
-        var email = binding.user.editableText
-        var pass = binding.pass.editableText
+        val toggle = ActionBarDrawerToggle(
+            this,
+            binding.drawerLayout,
+            binding.appBarMain.toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
 
-        if(email.isNotEmpty() && pass.isNotEmpty()) {
-            this.mAuth.signInWithEmailAndPassword(email.toString(), pass.toString()).addOnCompleteListener(this, OnCompleteListener<AuthResult> { task ->
-                if (task.isSuccessful) {
-                    startActivity(Intent(this, Timeline::class.java))
-                    Toast.makeText(this, "Successfully Logged in :)", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(this, "Error Logging in :(", Toast.LENGTH_SHORT).show()
-                }
-            })
-        }else {
-            Toast.makeText(this, "Please fill up the Credentials :|", Toast.LENGTH_SHORT).show()
+        binding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        binding.navView.setNavigationItemSelectedListener(this)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, HomeFragment())
+                .commit()
+            supportActionBar?.title = getString(R.string.app_name)
         }
     }
 
-    private fun register () {
-        startActivity(Intent(this, RegisterActivity::class.java))
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        var fragment: Fragment? = null
+        var title = getString(R.string.app_name)
+        when (item.itemId) {
+            R.id.nav_home -> {
+                fragment = HomeFragment()
+                title = getString(R.string.app_name)
+            }
+        }
+        if (fragment != null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, fragment)
+                .commit()
+        }
+        supportActionBar?.title = title
+
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
+        return true
     }
+
+    // to dynamic feature
+//    private fun instantiateFragment(className: String) : Fragment? {
+//        return try {
+//            Class.forName(className).newInstance() as Fragment
+//        } catch (e: Exception) {
+//            // not install feature module
+//            null
+//        }
+//    }
 }
