@@ -1,5 +1,6 @@
-package academy.bangkit.project.capstone.vaccinekit
+package academy.bangkit.project.capstone.vaccinekit.auth
 
+import academy.bangkit.project.capstone.vaccinekit.Timeline
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityRegisterBinding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class Register : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     val mAuth = FirebaseAuth.getInstance()
     lateinit var mDatabase : DatabaseReference

@@ -1,10 +1,10 @@
 package academy.bangkit.project.capstone.vaccinekit
 
+import academy.bangkit.project.capstone.vaccinekit.auth.RegisterActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityMainBinding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun login() {
         var email = binding.user.editableText
         var pass = binding.pass.editableText
@@ -48,6 +47,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun register () {
-        startActivity(Intent(this, Register::class.java))
+        startActivity(Intent(this, RegisterActivity::class.java))
     }
 }
