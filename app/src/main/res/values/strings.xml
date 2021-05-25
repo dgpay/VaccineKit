@@ -11,4 +11,7 @@
     <string name="loginbtn">Login</string>
     <string name="loginbutton">Login</string>
 
+    <string name="appLogo">Vaccine Kit Logo</string>
+    <string name="WordsRegister">Touch me to Register...</string>
+
 </resources>
