@@ -28,7 +28,6 @@
             android:layout_height="400dp">
 
             <ImageView
-                android:contentDescription="@string/appLogo"
                 android:layout_width="match_parent"
                 android:layout_height="444dp"
                 android:background="@drawable/background_white_solid_rectangle" />
@@ -81,6 +80,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
                     android:text="@string/loginbutton"/>
 
 
@@ -90,6 +91,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/WordsRegister"
                     android:textColor="#A1A1A1"
+                    android:textSize="16sp"
+                    android:textAllCaps="false"
                     style="?android:attr/borderlessButtonStyle"/>
 
 
