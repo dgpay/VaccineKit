@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener {
             login()
         }
-        binding.regTxt.setOnClickListener{
+        binding.regTxtButton.setOnClickListener{
             register()
         }
     }
