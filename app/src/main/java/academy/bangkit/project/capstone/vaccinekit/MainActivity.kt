@@ -1,18 +1,18 @@
 package academy.bangkit.project.capstone.vaccinekit
 
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityMainBinding
-import academy.bangkit.project.capstone.vaccinekit.home.HomeFragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.core.view.GravityCompat
-import androidx.fragment.app.Fragment
-import com.google.android.material.navigation.NavigationView
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,54 +21,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        val toggle = ActionBarDrawerToggle(
-            this,
-            binding.drawerLayout,
-            binding.appBarMain.toolbar,
-            R.string.navigation_drawer_open,
-            R.string.navigation_drawer_close
-        )
+        appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.nav_home
+        ), binding.drawerLayout)
 
-        binding.drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        binding.navView.setNavigationItemSelectedListener(this)
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, HomeFragment())
-                .commit()
-            supportActionBar?.title = getString(R.string.app_name)
-        }
+        setupActionBarWithNavController(findNavController(R.id.nav_host_fragment), appBarConfiguration)
+        binding.navView.setupWithNavController(findNavController(R.id.nav_host_fragment))
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        var fragment: Fragment? = null
-        var title = getString(R.string.app_name)
-        when (item.itemId) {
-            R.id.nav_home -> {
-                fragment = HomeFragment()
-                title = getString(R.string.app_name)
-            }
-        }
-        if (fragment != null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, fragment)
-                .commit()
-        }
-        supportActionBar?.title = title
-
-        binding.drawerLayout.closeDrawer(GravityCompat.START)
-        return true
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration) ||
+                super.onSupportNavigateUp()
     }
-
-    // to dynamic feature
-//    private fun instantiateFragment(className: String) : Fragment? {
-//        return try {
-//            Class.forName(className).newInstance() as Fragment
-//        } catch (e: Exception) {
-//            // not install feature module
-//            null
-//        }
-//    }
 }
