@@ -14,5 +14,11 @@
     <string name="appLogo">Vaccine Kit Logo</string>
     <string name="WordsRegister">Touch me to Register...</string>
     <string name="register">Register</string>
+    <string name="nik">NIK</string>
+    <string name="name">Name</string>
+    <string name="ttl">TTL</string>
+    <string name="address">Address</string>
+    <string name="date">Date</string>
+    <string name="submit">Submit</string>
 
 </resources>
