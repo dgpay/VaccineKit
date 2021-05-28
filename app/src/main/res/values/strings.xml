@@ -16,5 +16,7 @@
     <string name="register">Register</string>
     <string name="VaccineKitMotto">Advancement of the Nation</string>
     <string name="vaccine_kit">Vaccine Kit</string>
+    <string name="my_barcode">My Barcode</string>
+    <string name="health_record">Health Record</string>
 
 </resources>
