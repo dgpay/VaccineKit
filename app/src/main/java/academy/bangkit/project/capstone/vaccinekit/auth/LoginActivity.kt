@@ -1,5 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekit.auth
 
+import academy.bangkit.project.capstone.vaccinekit.MainActivity
 import academy.bangkit.project.capstone.vaccinekit.Timeline
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityLoginBinding
 import android.content.Intent
@@ -35,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         if(email.isNotEmpty() && pass.isNotEmpty()) {
             this.mAuth.signInWithEmailAndPassword(email.toString(), pass.toString()).addOnCompleteListener(this, OnCompleteListener<AuthResult> { task ->
                 if (task.isSuccessful) {
-                    startActivity(Intent(this, Timeline::class.java))
+                    startActivity(Intent(this, MainActivity::class.java))
                     Toast.makeText(this, "Successfully Logged in :)", Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(this, "Error Logging in :(", Toast.LENGTH_SHORT).show()
