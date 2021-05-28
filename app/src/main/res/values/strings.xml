@@ -20,5 +20,6 @@
     <string name="address">Address</string>
     <string name="date">Date</string>
     <string name="submit">Submit</string>
+    <string name="photo">Photo</string>
 
 </resources>

@@ -67,9 +67,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun addDatabase() {
         val user = hashMapOf(
-            "first" to "Ada",
-            "last" to "Lovelace",
-            "born" to 1815
+            "NIK" to "12321424234423",
+            "name" to "Haris",
+            "photo" to "asdaddfa",
+            "TTl" to "qwerty",
+            "address" to "adasdds",
+            "date" to "2343242"
         )
 
         db.collection("users")
