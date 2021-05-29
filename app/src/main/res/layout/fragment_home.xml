@@ -1,20 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.HomeFragment">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".home.HomeFragment"
+    android:background="#F1F1FA">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="-80dp"
+                        android:background="@drawable/header_radius_rectangle" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="30dp"
+                        android:paddingLeft="30dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vaccine_kit"
+                            android:textStyle="bold"
+                            android:textSize="30sp"
+                            android:layout_marginTop="30dp"
+                            android:textColor="@color/white" />
+
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
+                        android:layout_marginLeft="35dp"
+                        android:text="@string/VaccineKitMotto"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"/>
+
+                </FrameLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/Card_Verification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:clickable="true"
+                    app:cardElevation="3dp"
+                    app:cardCornerRadius="3dp"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/red_use_young">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Verification Account Now"
+                                android:textColor="@color/red_use"
+                                android:textStyle="bold"
+                                android:textSize="25dp"
+                                android:layout_marginLeft="20sp"
+                                android:layout_marginTop="23dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Got Bunch of Benefit!"
+                                android:textColor="@color/red_use"
+                                android:textSize="18dp"
+                                android:layout_marginLeft="21sp"
+                                android:layout_marginTop="1dp"/>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_marginTop="25dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_width="68dp"
+                            android:layout_height="48dp"
+                            android:src="@drawable/ic_baseline_navigate_next_24" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_margin="20dp"
+                        android:clickable="true"
+                        app:cardElevation="3dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="3dp"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="15dp"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp">
+
+                            <ImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:src="@drawable/qr_code_icon"
+                                android:layout_alignParentTop="true"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/my_barcode"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:clickable="true"
+                        android:layout_margin="20dp"
+                        app:cardElevation="3dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="3dp"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="15dp"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp">
+
+                            <ImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:src="@drawable/health_record_diary_icon"
+                                android:layout_alignParentTop="true"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/health_record"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_margin="20dp"
+                        android:clickable="true"
+                        app:cardElevation="3dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="3dp"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="15dp"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp">
+
+                            <ImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:src="@drawable/lost_report_icon"
+                                android:layout_alignParentTop="true"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Report Lost"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:clickable="true"
+                        android:layout_margin="20dp"
+                        app:cardElevation="3dp"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        app:cardCornerRadius="3dp"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="15dp"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp">
+
+                            <ImageView
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:src="@drawable/qr_code_icon"
+                                android:layout_alignParentTop="true"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Your Barcode"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"
+                                android:textStyle="bold"
+                                android:layout_marginTop="10dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
