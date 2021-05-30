@@ -5,15 +5,18 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.VaccineKit">
-        <activity android:name=".insert.InsertActivity"></activity>
+        android:theme="@style/Theme.VaccineKit"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".losering.LoseRingActivity"></activity>
         <activity android:name=".SplashScreenActivity" />
         <activity android:name=".auth.LoginActivity">
             <intent-filter>
@@ -27,7 +30,7 @@
         <activity android:name=".auth.RegisterActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
