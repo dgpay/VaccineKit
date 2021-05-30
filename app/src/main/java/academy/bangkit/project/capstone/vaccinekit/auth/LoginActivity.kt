@@ -2,6 +2,7 @@ package academy.bangkit.project.capstone.vaccinekit.auth
 
 import academy.bangkit.project.capstone.vaccinekit.MainActivity
 import academy.bangkit.project.capstone.vaccinekit.Timeline
+import academy.bangkit.project.capstone.vaccinekit.core.domain.usecase.LoginInteractor
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityLoginBinding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -15,13 +16,19 @@ class LoginActivity : AppCompatActivity() {
 
     var mAuth = FirebaseAuth.getInstance()
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var loginInteractor: LoginInteractor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        loginInteractor = LoginInteractor(this)
+
+//        var email = binding.user.editableText
+//        var pass = binding.pass.editableText
         binding.loginBtn.setOnClickListener {
+//            loginInteractor.login(email.toString(), pass.toString())
             login()
         }
         binding.regTxtButton.setOnClickListener{

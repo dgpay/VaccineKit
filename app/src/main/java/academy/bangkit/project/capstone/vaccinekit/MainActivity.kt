@@ -36,7 +36,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home
+            R.id.nav_home,
+            R.id.nav_insert
         ), binding.drawerLayout)
 
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment), appBarConfiguration)
@@ -60,30 +61,30 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         if (item!!.itemId == R.id.add) {
-            addDatabase()
+//            addDatabase()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun addDatabase() {
-        val user = hashMapOf(
-            "NIK" to "12321424234423",
-            "name" to "Haris",
-            "photo" to "asdaddfa",
-            "TTl" to "qwerty",
-            "address" to "adasdds",
-            "date" to "2343242"
-        )
-
-        db.collection("users")
-            .add(user)
-            .addOnSuccessListener { documentReference ->
-                Toast.makeText(this,"berhasil",Toast.LENGTH_SHORT).show()
-                Log.d(ContentValues.TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(this,"ora",Toast.LENGTH_SHORT).show()
-                Log.w(ContentValues.TAG, "Error adding document", e)
-            }
-    }
+//    private fun addDatabase() {
+//        val user = hashMapOf(
+//            "NIK" to "12321424234423",
+//            "name" to "Haris",
+//            "photo" to "asdaddfa",
+//            "TTl" to "qwerty",
+//            "address" to "adasdds",
+//            "date" to "2343242"
+//        )
+//
+//        db.collection("users")
+//            .add(user)
+//            .addOnSuccessListener { documentReference ->
+//                Toast.makeText(this,"berhasil",Toast.LENGTH_SHORT).show()
+//                Log.d(ContentValues.TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+//            }
+//            .addOnFailureListener { e ->
+//                Toast.makeText(this,"ora",Toast.LENGTH_SHORT).show()
+//                Log.w(ContentValues.TAG, "Error adding document", e)
+//            }
+//    }
 }
