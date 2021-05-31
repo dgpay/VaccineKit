@@ -6,18 +6,62 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import academy.bangkit.project.capstone.vaccinekit.R
+import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentInsertBinding
+import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentQrcodeBinding
+import android.view.Gravity
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatWriter
+import com.google.zxing.WriterException
+import com.journeyapps.barcodescanner.BarcodeEncoder
+import org.koin.android.ext.android.bind
 
 class QrcodeFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var generateBtn : Button
+    private lateinit var ImageQr : ImageView
+    private var _binding: FragmentQrcodeBinding? = null
+    private val binding get() = _binding!!
+    val contentText = "12uyr723g8fwef"
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_qrcode, container, false)
+        _binding = FragmentQrcodeBinding.inflate(inflater, container, false)
+
+        val data = contentText
+        binding.buttonGenerate.setOnClickListener {
+            if( data.isNotEmpty()){
+                generateQr()
+            }else{
+                showSnackbarMessage("You are not yet got Vaccine")
+            }
+        }
+        return binding.root
     }
 
+    private fun generateQr() {
+        val multiFormatWriter = MultiFormatWriter()
+        try {
+            val bitMatrix = multiFormatWriter.encode(
+                contentText,
+                BarcodeFormat.QR_CODE,
+                300,
+                300
+            )
+            val barcodeEncoder = BarcodeEncoder()
+            val bitmap = barcodeEncoder.createBitmap(bitMatrix)
+            binding.imgQrcode.setImageBitmap(bitmap)
+        }catch (e: WriterException){
+            e.printStackTrace()
+        }
+
+    }
+    private fun showSnackbarMessage(message: String) {
+        Snackbar.make(binding.myqrcode, message, Snackbar.LENGTH_SHORT).show()
+    }
 }
