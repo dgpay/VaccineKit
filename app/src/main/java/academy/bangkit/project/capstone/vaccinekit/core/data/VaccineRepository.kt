@@ -21,4 +21,26 @@ class VaccineRepository(private val remoteDataSource: RemoteDataSource) : IVacci
             DataMapper.mapVerifResponseToDomain(it)
         }
     }
+
+    override fun addVaccineData(
+        nik: String,
+        name: String,
+        address: String,
+        photos: String,
+        ttl: String,
+        firstVaccineData: String,
+        secondVaccineDate: String,
+        vaccineStatus: String
+    ) = remoteDataSource.postVaccineData(
+        nik,
+        name,
+        address,
+        photos,
+        ttl,
+        firstVaccineData,
+        secondVaccineDate,
+        vaccineStatus
+    )
+
+
 }

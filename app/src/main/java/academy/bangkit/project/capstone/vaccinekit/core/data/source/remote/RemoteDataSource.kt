@@ -1,6 +1,7 @@
 package academy.bangkit.project.capstone.vaccinekit.core.data.source.remote
 
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.network.ApiService
+import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.AddVaccineResponse
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VaccineResponse
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VerifResponse
 import android.util.Log
@@ -26,6 +27,26 @@ class RemoteDataSource (private val apiService: ApiService) {
         return flow {
             try {
                 val response = apiService.getVaccine(nik)
+                emit(response)
+            } catch (e: Exception) {
+                Log.e("RemoteDataSource", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
+    fun postVaccineData(
+        nik: String,
+        name: String,
+        address: String,
+        photos: String,
+        ttl: String,
+        firstVaccineData: String,
+        secondVaccineDate: String,
+        vaccineStatus: String
+    ): Flow<AddVaccineResponse> {
+        return flow {
+            try {
+                val response = apiService.postVaccine(nik,name, address, photos, ttl, firstVaccineData, secondVaccineDate, vaccineStatus)
                 emit(response)
             } catch (e: Exception) {
                 Log.e("RemoteDataSource", e.toString())

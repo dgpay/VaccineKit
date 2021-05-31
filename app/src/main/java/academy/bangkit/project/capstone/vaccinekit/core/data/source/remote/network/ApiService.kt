@@ -1,13 +1,9 @@
 package academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.network
 
-import academy.bangkit.project.capstone.vaccinekit.core.data.source.local.entity.VaccineEntity
+import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.AddVaccineResponse
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VaccineResponse
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VerifResponse
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.Call
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -21,7 +17,17 @@ interface ApiService {
         @Query("nik") nik: String
     ): VaccineResponse
 
-    @POST("get_vaccine_data")
+    @FormUrlEncoded
+    @POST("add_data_vaccine")
     suspend fun postVaccine(
-    ): VaccineResponse
+        @Field("nik") nik: String,
+        @Field("name") name: String,
+        @Field("address") address: String,
+        @Field("photo") photo: String,
+        @Field("ttl") ttl: String,
+        @Field("firstVaccineData") firstVaccineData: String,
+        @Field("secondVaccineDate") secondVaccineDate: String,
+        @Field("vaccineStatus") vaccineStatus: String
+    ): AddVaccineResponse
+
 }

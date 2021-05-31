@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import academy.bangkit.project.capstone.vaccinekit.R
-import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentInsertBinding
 import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentQrcodeBinding
-import android.view.Gravity
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
@@ -17,7 +14,6 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.journeyapps.barcodescanner.BarcodeEncoder
-import org.koin.android.ext.android.bind
 
 class QrcodeFragment : Fragment() {
     private lateinit var generateBtn : Button
@@ -63,5 +59,10 @@ class QrcodeFragment : Fragment() {
     }
     private fun showSnackbarMessage(message: String) {
         Snackbar.make(binding.myqrcode, message, Snackbar.LENGTH_SHORT).show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -2,7 +2,7 @@ package academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.resp
 
 import com.google.gson.annotations.SerializedName
 
-data class VaccineResponse(
+data class AddVaccineResponse(
 
 	@field:SerializedName("vaccineStatus")
 	val vaccineStatus: String,
@@ -19,14 +19,11 @@ data class VaccineResponse(
 	@field:SerializedName("address")
 	val address: String,
 
-	@field:SerializedName("qr_id")
-	val qrId: String,
+	@field:SerializedName("name")
+	val name: String,
 
 	@field:SerializedName("secondVaccineDate")
 	val secondVaccineDate: String,
-
-	@field:SerializedName("name")
-	val name: String,
 
 	@field:SerializedName("photo")
 	val photo: String,

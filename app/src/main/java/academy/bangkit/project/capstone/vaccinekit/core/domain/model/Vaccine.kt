@@ -4,6 +4,7 @@ data class Vaccine(
     val nik: String,
     val name: String,
     val photo: String,
+//    val barcode: String,
     val vaccineStatus: String,
     val ttl: String,
     val address: String,

@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_home,
             R.id.nav_insert,
             R.id.nav_detail,
-            R.id.nav_lose
+            R.id.nav_qrcode
         ), binding.drawerLayout)
 
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment), appBarConfiguration)

@@ -1,6 +1,5 @@
 package academy.bangkit.project.capstone.vaccinekit.core.utils
 
-import academy.bangkit.project.capstone.vaccinekit.core.data.source.local.entity.VaccineEntity
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VaccineResponse
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VerifResponse
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine

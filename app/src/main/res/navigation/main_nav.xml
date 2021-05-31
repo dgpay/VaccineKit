@@ -20,11 +20,11 @@
         android:name="academy.bangkit.project.capstone.vaccinekit.detail.DetailVaccineActivity"
         android:label="activity_detail_vaccine"
         tools:layout="@layout/activity_detail_vaccine" />
-    <activity
-        android:id="@+id/nav_lose"
-        android:name="academy.bangkit.project.capstone.vaccinekit.losering.LoseRingActivity"
-        android:label="activity_lose_ring"
-        tools:layout="@layout/activity_lose_ring" />
+    <fragment
+        android:id="@+id/nav_qrcode"
+        android:name="academy.bangkit.project.capstone.vaccinekit.qrcode.QrcodeFragment"
+        android:label="fragment_qrcode"
+        tools:layout="@layout/fragment_qrcode" />
 
 
 </navigation>
