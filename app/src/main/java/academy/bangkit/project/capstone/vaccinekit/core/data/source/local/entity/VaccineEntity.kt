@@ -17,7 +17,10 @@ class VaccineEntity(
     var name: String,
 
     @ColumnInfo(name = "photo")
-    var photo: Int,
+    var photo: String,
+
+    @ColumnInfo(name = "qrCode")
+    var qrCode: String,
 
     @ColumnInfo(name = "TTL")
     var TTL: String,
@@ -25,6 +28,9 @@ class VaccineEntity(
     @ColumnInfo(name = "address")
     var address: String,
 
-    @ColumnInfo(name = "date")
-    var date: String
+    @ColumnInfo(name = "firstVaccine")
+    var firstVaccine: String,
+
+    @ColumnInfo(name = "secondVaccine")
+    var secondVaccine: String
 )

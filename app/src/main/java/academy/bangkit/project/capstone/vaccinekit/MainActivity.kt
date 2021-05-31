@@ -14,14 +14,12 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-    lateinit var mDatabase : DatabaseReference
-    var mAuth = FirebaseAuth.getInstance()
+    private var mAuth = FirebaseAuth.getInstance()
     var user = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +30,10 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home
+            R.id.nav_home,
+            R.id.nav_insert,
+            R.id.nav_detail,
+            R.id.nav_lose
         ), binding.drawerLayout)
 
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment), appBarConfiguration)
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item!!.itemId == R.id.signOut) {
+        if (item?.itemId == R.id.signOut) {
             mAuth.signOut()
             Toast.makeText(this, "Signed Out :(", Toast.LENGTH_LONG).show()
             startActivity(Intent(this, LoginActivity::class.java))

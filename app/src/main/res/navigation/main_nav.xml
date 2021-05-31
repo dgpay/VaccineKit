@@ -10,4 +10,21 @@
         android:name="academy.bangkit.project.capstone.vaccinekit.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_insert"
+        android:name="academy.bangkit.project.capstone.vaccinekit.insert.InsertFragment"
+        android:label="fragment_insert"
+        tools:layout="@layout/fragment_insert" />
+    <activity
+        android:id="@+id/nav_detail"
+        android:name="academy.bangkit.project.capstone.vaccinekit.detail.DetailVaccineActivity"
+        android:label="activity_detail_vaccine"
+        tools:layout="@layout/activity_detail_vaccine" />
+    <activity
+        android:id="@+id/nav_lose"
+        android:name="academy.bangkit.project.capstone.vaccinekit.losering.LoseRingActivity"
+        android:label="activity_lose_ring"
+        tools:layout="@layout/activity_lose_ring" />
+
+
 </navigation>

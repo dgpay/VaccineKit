@@ -1,29 +1,25 @@
 package academy.bangkit.project.capstone.vaccinekit.core.utils
 
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.local.entity.VaccineEntity
+import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VaccineResponse
+import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VerifResponse
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine
+import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Verification
 
 object DataMapper {
-    fun mapResponsesToEntities() {  }
-
-    fun mapEntitiesToDomain(input: List<VaccineEntity>): List<Vaccine> =
-        input.map {
-            Vaccine(
-                NIK = it.NIK,
-                TTL = it.TTL,
-                address = it.address,
-                date = it.date,
-                name = it.name,
-                photo = it.photo
-            )
-        }
-
-    fun mapDomainToEntity(it: Vaccine) = VaccineEntity(
-        NIK = it.NIK,
-        TTL = it.TTL,
-        address = it.address,
-        date = it.date,
+    fun mapResponseToDomain(it: VaccineResponse) = Vaccine(
+        nik = it.nik,
         name = it.name,
-        photo = it.photo
+        photo = it.photo,
+        vaccineStatus = it.vaccineStatus,
+        ttl = it.ttl,
+        address = it.address,
+        firstVaccine = it.firstVaccineDate,
+        secondVaccine = it.secondVaccineDate
+    )
+
+    fun mapVerifResponseToDomain(it: VerifResponse) = Verification(
+        message = it.message,
+        status = it.status
     )
 }
