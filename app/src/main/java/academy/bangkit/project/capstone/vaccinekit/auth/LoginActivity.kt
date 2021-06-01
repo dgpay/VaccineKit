@@ -1,7 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekit.auth
 
 import academy.bangkit.project.capstone.vaccinekit.MainActivity
-import academy.bangkit.project.capstone.vaccinekit.Timeline
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityLoginBinding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

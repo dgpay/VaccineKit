@@ -28,7 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".detail.DetailVaccineActivity" />
-        <activity android:name=".Timeline" />
         <activity android:name=".auth.RegisterActivity" />
         <activity
             android:name=".MainActivity"

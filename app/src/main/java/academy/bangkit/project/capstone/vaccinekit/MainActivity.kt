@@ -4,8 +4,8 @@ import academy.bangkit.project.capstone.vaccinekit.auth.LoginActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityMainBinding
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast

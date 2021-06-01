@@ -1,11 +1,11 @@
 package academy.bangkit.project.capstone.vaccinekit.qrcode
 
+import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentQrcodeBinding
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentQrcodeBinding
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast

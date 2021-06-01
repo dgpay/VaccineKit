@@ -1,6 +1,5 @@
 package academy.bangkit.project.capstone.vaccinekit.auth
 
-import academy.bangkit.project.capstone.vaccinekit.Timeline
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityRegisterBinding
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -41,7 +40,7 @@ class RegisterActivity : AppCompatActivity() {
                         val user = mAuth.currentUser
                         val uid = user!!.uid
                         mDatabase.child(uid).child("Name").setValue(nameTxt.toString())
-                        startActivity(Intent(this, Timeline::class.java))
+//                        startActivity(Intent(this, Timeline::class.java))
                         Toast.makeText(this, "Successfully registered :)", Toast.LENGTH_LONG).show()
                     }else {
                         Toast.makeText(this, "Error registering, try again later :(", Toast.LENGTH_LONG).show()
