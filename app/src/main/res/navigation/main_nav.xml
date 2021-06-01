@@ -25,6 +25,11 @@
         android:name="academy.bangkit.project.capstone.vaccinekit.qrcode.QrcodeFragment"
         android:label="fragment_qrcode"
         tools:layout="@layout/fragment_qrcode" />
+    <activity
+        android:id="@+id/nav_camera"
+        android:name="academy.bangkit.project.capstone.vaccinekit.insert.InsertActivity"
+        android:label="activity_insert"
+        tools:layout="@layout/activity_insert" />
 
 
 </navigation>

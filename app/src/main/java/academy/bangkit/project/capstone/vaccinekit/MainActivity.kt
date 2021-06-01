@@ -3,6 +3,7 @@ package academy.bangkit.project.capstone.vaccinekit
 import academy.bangkit.project.capstone.vaccinekit.auth.LoginActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityMainBinding
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -27,13 +28,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initPermission()
+
         setSupportActionBar(binding.appBarMain.toolbar)
 
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_home,
             R.id.nav_insert,
             R.id.nav_detail,
-            R.id.nav_qrcode
+            R.id.nav_qrcode,
+            R.id.nav_camera
         ), binding.drawerLayout)
 
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment), appBarConfiguration)
@@ -57,5 +61,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun initPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(
+                arrayOf(
+                    android.Manifest.permission.CAMERA,
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ), 1
+            )
+        }
     }
 }
