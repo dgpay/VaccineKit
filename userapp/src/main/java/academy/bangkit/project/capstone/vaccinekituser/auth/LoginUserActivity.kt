@@ -47,6 +47,6 @@ class LoginUserActivity : AppCompatActivity() {
     }
 
     private fun register () {
-        startActivity(Intent(this, RegisterUserActivity::class.java))
+//        startActivity(Intent(this, RegisterUserActivity::class.java))
     }
 }

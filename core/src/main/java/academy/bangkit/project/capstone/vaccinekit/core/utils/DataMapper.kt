@@ -14,7 +14,8 @@ object DataMapper {
         ttl = it.ttl,
         address = it.address,
         firstVaccine = it.firstVaccineDate,
-        secondVaccine = it.secondVaccineDate
+        secondVaccine = it.secondVaccineDate,
+        barcode = it.qrId
     )
 
     fun mapVerifResponseToDomain(it: VerifResponse) = Verification(

@@ -21,7 +21,6 @@ class QrcodeUserFragment : Fragment() {
     private val binding get() = _binding!!
     val contentText = "12uyr723g8fwef"
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,7 +53,6 @@ class QrcodeUserFragment : Fragment() {
         }catch (e: WriterException){
             e.printStackTrace()
         }
-
     }
     private fun showSnackbarMessage(message: String) {
         Snackbar.make(binding.myqrcode, message, Snackbar.LENGTH_SHORT).show()

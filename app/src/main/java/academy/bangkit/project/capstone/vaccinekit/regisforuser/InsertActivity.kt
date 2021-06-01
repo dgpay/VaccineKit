@@ -1,4 +1,4 @@
-package academy.bangkit.project.capstone.vaccinekit.insert
+package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityInsertBinding
 import android.app.Activity

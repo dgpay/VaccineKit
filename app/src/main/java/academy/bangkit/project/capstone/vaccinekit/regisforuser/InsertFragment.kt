@@ -1,11 +1,11 @@
-package academy.bangkit.project.capstone.vaccinekituser.insert
+package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
-import academy.bangkit.project.capstone.vaccinekituser.databinding.FragmentInsertBinding
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentInsertBinding
 import android.content.ContentValues.TAG
 import android.util.Log
 import com.google.firebase.firestore.ktx.firestore
