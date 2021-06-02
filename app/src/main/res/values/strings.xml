@@ -33,5 +33,6 @@
     <string name="secondvaccine">Second Vaccine</string>
     <string name="firstvaccine">First Vaccine</string>
     <string name="selectionphoto">Selection Photo</string>
+    <string name="statusvaccine">Status Vaccine</string>
 
 </resources>

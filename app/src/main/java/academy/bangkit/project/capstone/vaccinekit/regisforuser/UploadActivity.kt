@@ -66,24 +66,17 @@ class UploadActivity : AppCompatActivity() {
     }
 
     private fun resultCamera(data: Intent?) {
-
         val image = data?.extras?.get("data")
         val random = Random.nextInt(0, 999999)
         val name_file = "Camera$random"
-
         image_path = persistImage(image as Bitmap, name_file)
-
         binding.imgView.setImageBitmap(BitmapFactory.decodeFile(image_path))
-
     }
 
     private fun persistImage(bitmap: Bitmap, name: String): String {
-
         val filesDir = filesDir
         val imageFile = File(filesDir, "${name}.png")
-
         val image_path = imageFile.path
-
         val os: OutputStream?
         try {
             os = FileOutputStream(imageFile)
