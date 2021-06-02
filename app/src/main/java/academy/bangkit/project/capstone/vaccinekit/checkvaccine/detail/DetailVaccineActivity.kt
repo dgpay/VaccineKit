@@ -1,4 +1,4 @@
-package academy.bangkit.project.capstone.vaccinekit.detail
+package academy.bangkit.project.capstone.vaccinekit.checkvaccine.detail
 
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityDetailVaccineBinding
@@ -13,6 +13,10 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailVaccineActivity : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+    }
+
     private lateinit var binding: ActivityDetailVaccineBinding
     private val viewModel: DetailVaccineViewModel by viewModel()
 
@@ -21,18 +25,19 @@ class DetailVaccineActivity : AppCompatActivity() {
         binding = ActivityDetailVaccineBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val barcode = intent.getStringExtra(EXTRA_DATA)
+
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
-                viewModel.getVaccineData("0123768763618736918").collectLatest {
-                    showData(it)
+                viewModel.getDataByBarcode(barcode.toString()).collectLatest {
+                        showData(it)
+                    }
                 }
             }
         }
     }
 
     private fun showData(vaccine: Vaccine) {
-        binding.tvName.text = vaccine.name
-        binding.tvNik.text = vaccine.nik
-        binding.tvAddress.text = vaccine.address
+
     }
 }

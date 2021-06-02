@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 class VaccineInteractor(private val vaccineRepository: IVaccineRepository) : VaccineUseCase {
     override fun getVaccineData(nik: String): Flow<Vaccine> = vaccineRepository.getVaccineData(nik)
     override fun getVerification(nik: String): Flow<Verification> = vaccineRepository.getVerification(nik)
+    override fun getDataByBarcode(barcode: String): Flow<Vaccine> = vaccineRepository.getDataByBarcode(barcode)
     override fun getNIKBarcode(nik: String, photos: String): Flow<NIKBarcode> = vaccineRepository.getNIKBarcode(nik, photos)
     override fun addVaccineData(
         nik: String,

@@ -1,6 +1,8 @@
-package academy.bangkit.project.capstone.vaccinekit.losering
+package academy.bangkit.project.capstone.vaccinekit.checkvaccine
 
+import academy.bangkit.project.capstone.vaccinekit.checkvaccine.detail.DetailVaccineActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityScannerBarcodeBinding
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -28,7 +30,6 @@ class ScannerBarcodeActivity : AppCompatActivity() {
     }
 
     private fun codeScanner(){
-
         codeScanner = CodeScanner(this, binding.scannerView)
 
         codeScanner.apply {
@@ -42,7 +43,9 @@ class ScannerBarcodeActivity : AppCompatActivity() {
 
             decodeCallback = DecodeCallback {
                 runOnUiThread {
-                    binding.tvScan.text = it.text
+                    if (it.text.isNotEmpty()) {
+                        moveToDetail(it.text)
+                    }
                 }
             }
             errorCallback = ErrorCallback {
@@ -51,10 +54,15 @@ class ScannerBarcodeActivity : AppCompatActivity() {
                 }
             }
         }
-
         binding.scannerView.setOnClickListener{
             codeScanner.startPreview()
         }
+    }
+
+    private fun moveToDetail(string: String) {
+        val intent = Intent(this, DetailVaccineActivity::class.java)
+        intent.putExtra(DetailVaccineActivity.EXTRA_DATA, string)
+        startActivity(intent)
     }
 
     override fun onResume() {

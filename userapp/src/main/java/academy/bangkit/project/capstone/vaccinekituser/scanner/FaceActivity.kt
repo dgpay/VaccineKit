@@ -1,6 +1,7 @@
 package academy.bangkit.project.capstone.vaccinekituser.scanner
 
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityFaceBinding
+import academy.bangkit.project.capstone.vaccinekituser.utils.FilePath
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -15,6 +16,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.io.File
 import java.io.FileOutputStream
+import java.io.IOException
 import java.io.OutputStream
 import kotlin.random.Random
 
@@ -36,7 +38,6 @@ class FaceActivity : AppCompatActivity() {
             cameraIntent()
         }
     }
-
 
     private fun cameraIntent() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -78,6 +79,24 @@ class FaceActivity : AppCompatActivity() {
             Log.e("TAG", "persistImage: ${e.message.toString()} ", e )
         }
         return image_path
+    }
+
+    private fun resultGallery(data: Intent?) {
+        val image_bitmap = selectFromGalleryResult(data)
+        binding.imgView.setImageBitmap(image_bitmap)
+    }
+
+    private fun selectFromGalleryResult(data: Intent?): Bitmap {
+        var bm: Bitmap? = null
+        if (data!=null){
+            try {
+                image_path = data.data?.let { FilePath.getPath(this, it) }
+                bm = MediaStore.Images.Media.getBitmap(applicationContext.contentResolver, data.data)
+            } catch (e: IOException){
+                e.printStackTrace()
+            }
+        }
+        return bm!!
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

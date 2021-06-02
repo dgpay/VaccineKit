@@ -22,7 +22,7 @@ class QrcodeUserFragment : Fragment() {
     val contentText = "12uyr723g8fwef"
 
     companion object {
-
+        const val EXTRA_DATA = "extra_data"
     }
 
     override fun onCreateView(

@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VaccineKit"
         android:usesCleartextTraffic="true">
-        <activity android:name=".losering.ScannerBarcodeActivity"></activity>
+        <activity android:name=".checkvaccine.ScannerBarcodeActivity"></activity>
         <activity android:name=".regisforuser.UploadActivity" />
         <activity android:name=".SplashScreenActivity" />
         <activity android:name=".auth.LoginActivity">
@@ -30,7 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".detail.DetailVaccineActivity" />
+        <activity android:name="academy.bangkit.project.capstone.vaccinekit.checkvaccine.detail.DetailVaccineActivity" />
         <activity android:name=".auth.RegisterActivity" />
         <activity
             android:name=".MainActivity"

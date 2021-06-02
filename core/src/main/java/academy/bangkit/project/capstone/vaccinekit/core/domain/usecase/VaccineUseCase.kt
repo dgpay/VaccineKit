@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 interface VaccineUseCase {
     fun getVaccineData(nik: String): Flow<Vaccine>
     fun getVerification(nik: String): Flow<Verification>
+    fun getDataByBarcode(barcode: String): Flow<Vaccine>
     fun getNIKBarcode(nik: String,photos: String): Flow<NIKBarcode>
     fun addVaccineData(
         nik: String,
