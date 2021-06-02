@@ -1,6 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekit.core.data
 
-import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.RemoteDataSource
+import academy.bangkit.project.capstone.vaccinekit.core.domain.model.NIKBarcode
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Verification
 import academy.bangkit.project.capstone.vaccinekit.core.domain.repository.IVaccineRepository
@@ -16,9 +16,21 @@ class VaccineRepository(private val remoteDataSource: academy.bangkit.project.ca
         }
     }
 
+    override fun getDataByBarcode(barcode: String): Flow<Vaccine> {
+        return remoteDataSource.getDataByBarcode(barcode).map {
+            DataMapper.mapResponseToDomain(it)
+        }
+    }
+
     override fun getVerification(nik: String): Flow<Verification> {
         return remoteDataSource.getVerifNik(nik).map {
             DataMapper.mapVerifResponseToDomain(it)
+        }
+    }
+
+    override fun getNIKBarcode(nik: String, photos: String): Flow<NIKBarcode> {
+        return remoteDataSource.getVerifNIKBarcode(nik, photos).map {
+            DataMapper.mapNIKBarcode(it)
         }
     }
 
