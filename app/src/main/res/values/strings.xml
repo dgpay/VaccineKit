@@ -30,5 +30,7 @@
     <string name="date">Date</string>
     <string name="submit">Submit</string>
     <string name="photo">Photo</string>
+    <string name="secondvaccine">Second Vaccine</string>
+    <string name="firstvaccine">First Vaccine</string>
 
 </resources>

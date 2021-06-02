@@ -1,7 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekit.auth
 
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityRegisterBinding
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast

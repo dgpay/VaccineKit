@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".insert.InsertFragment">
+    tools:context=".regisforuser.RegisUserFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -60,10 +60,22 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp">
         <EditText
-            android:id="@+id/edt_photo"
+            android:id="@+id/edt_first_vaccine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/photo"
+            android:hint="@string/firstvaccine"
+            android:inputType="textCapSentences"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+        <EditText
+            android:id="@+id/edt_second_vaccine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/secondvaccine"
             android:inputType="textCapSentences"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
