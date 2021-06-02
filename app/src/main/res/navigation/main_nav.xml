@@ -14,22 +14,32 @@
         android:id="@+id/nav_insert"
         android:name="academy.bangkit.project.capstone.vaccinekit.regisforuser.RegisUserFragment"
         android:label="fragment_insert"
-        tools:layout="@layout/fragment_regis_user" />
+        tools:layout="@layout/fragment_regis_user" >
+        <action
+            android:id="@+id/action_nav_insert_to_uploadActivity"
+            app:destination="@id/nav_upload" />
+    </fragment>
     <activity
         android:id="@+id/nav_detail"
         android:name="academy.bangkit.project.capstone.vaccinekit.detail.DetailVaccineActivity"
         android:label="activity_detail_vaccine"
         tools:layout="@layout/activity_detail_vaccine" />
-    <fragment
-        android:id="@+id/nav_qrcode"
-        android:name="academy.bangkit.project.capstone.vaccinekit.qrcode.QrcodeUserFragment"
-        android:label="fragment_qrcode"
-        tools:layout="@layout/fragment_qrcode" />
     <activity
-        android:id="@+id/nav_camera"
+        android:id="@+id/nav_barcode"
+        android:name="academy.bangkit.project.capstone.vaccinekit.losering.ScannerBarcodeActivity"
+        android:label="activity_scanner_barcode"
+        tools:layout="@layout/activity_scanner_barcode" >
+    </activity>
+    <activity
+        android:id="@+id/nav_upload"
         android:name="academy.bangkit.project.capstone.vaccinekit.regisforuser.UploadActivity"
-        android:label="activity_insert"
-        tools:layout="@layout/activity_insert" />
+        android:label="activity_upload"
+        tools:layout="@layout/activity_upload" >
+        <argument
+            android:name="nikuser"
+            app:argType="string"
+            android:defaultValue="default_nikuser" />
+    </activity>
 
 
 </navigation>

@@ -1,6 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
-import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityInsertBinding
+import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityUploadBinding
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -20,26 +20,27 @@ import kotlin.random.Random
 
 class UploadActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityInsertBinding
-
-    private var image_path: String? = null
-
+    private lateinit var binding: ActivityUploadBinding
+    private var imagePath: String? = null
     private var mStorageRef: StorageReference? = null
+
+    companion object {
+        const val EXTRA_UPLOAD = "EXTRA"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityInsertBinding.inflate(layoutInflater)
+        binding = ActivityUploadBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mStorageRef = FirebaseStorage.getInstance().reference
 
         binding.btnUpload.setOnClickListener {
-            upload(image_path.toString())
+            upload(imagePath.toString())
         }
 
         binding.btnOpen.setOnClickListener {
             cameraIntent()
         }
-
     }
 
     private fun cameraIntent() {
@@ -50,36 +51,29 @@ class UploadActivity : AppCompatActivity() {
     private fun upload(path: String){
         val file = Uri.fromFile(File(path))
         val meta = File(path)
+        val nik = UploadActivityArgs.fromBundle(arguments as Bundle).nikuser
         val storageRef = mStorageRef?.child("photo_request_verif/${meta.name}")
-
         storageRef?.putFile(file)
             ?.addOnSuccessListener {
-                Toast.makeText(this, "File berhasil di upload", Toast.LENGTH_SHORT).show()
-                finish()
+                Toast.makeText(this, "File already uploaded", Toast.LENGTH_SHORT).show()
+//                finish()
             }?.addOnFailureListener {
                 Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun resultCamera(data: Intent?) {
-
         val image = data?.extras?.get("data")
         val random = Random.nextInt(0, 999999)
         val name_file = "Camera$random"
-
-        image_path = persistImage(image as Bitmap, name_file)
-
-        binding.imgView.setImageBitmap(BitmapFactory.decodeFile(image_path))
-
+        imagePath = persistImage(image as Bitmap, name_file)
+        binding.imgView.setImageBitmap(BitmapFactory.decodeFile(imagePath))
     }
 
     private fun persistImage(bitmap: Bitmap, name: String): String {
-
         val filesDir = filesDir
         val imageFile = File(filesDir, "${name}.png")
-
         val image_path = imageFile.path
-
         val os: OutputStream?
         try {
             os = FileOutputStream(imageFile)
@@ -89,13 +83,11 @@ class UploadActivity : AppCompatActivity() {
         } catch (e: Exception){
             Log.e("TAG", "persistImage: ${e.message.toString()} ", e )
         }
-
         return image_path
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 101) {
                 resultCamera(data)

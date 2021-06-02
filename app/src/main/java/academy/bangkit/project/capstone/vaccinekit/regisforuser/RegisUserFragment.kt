@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentRegisUserBinding
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.util.Log
+import androidx.navigation.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -63,6 +65,12 @@ class RegisUserFragment : Fragment() {
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)
             }
+    }
+
+    private fun navigateToUpdate(string: String, v:View) {
+        val toUploadActivity = RegisUserFragmentDirections.actionNavInsertToUploadActivity()
+        toUploadActivity.nikuser = string
+        v.findNavController().navigate(toUploadActivity)
     }
 
     override fun onDestroyView() {
