@@ -9,12 +9,10 @@ import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginUserActivity : AppCompatActivity() {
 
     var mAuth = FirebaseAuth.getInstance()
-    var mStore = FirebaseFirestore.getInstance()
     private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
