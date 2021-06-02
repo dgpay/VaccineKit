@@ -18,4 +18,9 @@
         android:name="academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity"
         android:label="activity_profil"
         tools:layout="@layout/activity_profil" />
+    <activity
+        android:id="@+id/nav_lose_band"
+        android:name="academy.bangkit.project.capstone.vaccinekituser.scanner.FaceActivity"
+        android:label="activity_face"
+        tools:layout="@layout/activity_face" />
 </navigation>

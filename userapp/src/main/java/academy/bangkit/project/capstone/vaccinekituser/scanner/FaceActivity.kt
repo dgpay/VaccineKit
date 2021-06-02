@@ -1,7 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekituser.scanner
 
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityFaceBinding
-import academy.bangkit.project.capstone.vaccinekituser.utils.FilePath
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -25,6 +24,8 @@ class FaceActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFaceBinding
     private var image_path: String? = null
     private var mStorageRef: StorageReference? = null
+    private val PICK_IMAGE_REQUEST = 71
+    private var filePath: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +37,9 @@ class FaceActivity : AppCompatActivity() {
         }
         binding.btnOpen.setOnClickListener {
             cameraIntent()
+        }
+        binding.btnGallery.setOnClickListener {
+            launchGallery()
         }
     }
 
@@ -81,22 +85,24 @@ class FaceActivity : AppCompatActivity() {
         return image_path
     }
 
-    private fun resultGallery(data: Intent?) {
-        val image_bitmap = selectFromGalleryResult(data)
-        binding.imgView.setImageBitmap(image_bitmap)
+    private fun launchGallery() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
     }
 
-    private fun selectFromGalleryResult(data: Intent?): Bitmap {
-        var bm: Bitmap? = null
-        if (data!=null){
-            try {
-                image_path = data.data?.let { FilePath.getPath(this, it) }
-                bm = MediaStore.Images.Media.getBitmap(applicationContext.contentResolver, data.data)
-            } catch (e: IOException){
-                e.printStackTrace()
-            }
+    private fun resultGallery(data: Intent?) {
+        if(data == null || data.data == null){
+            return
         }
-        return bm!!
+        filePath = data.data
+        try {
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
+            binding.imgView.setImageBitmap(bitmap)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -104,6 +110,8 @@ class FaceActivity : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == 101) {
                 resultCamera(data)
+            } else if (requestCode == PICK_IMAGE_REQUEST) {
+                resultGallery(data)
             }
         }
     }
