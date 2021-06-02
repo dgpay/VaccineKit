@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
     app:startDestination="@id/nav_home">
 
@@ -9,11 +10,12 @@
         android:name="academy.bangkit.project.capstone.vaccinekituser.home.HomeFragment"
         android:label="HomeFragment" />
     <fragment
-        android:id="@+id/nav_insert"
-        android:name="academy.bangkit.project.capstone.vaccinekituser.insert.InsertFragment"
-        android:label="InsertFragment" />
-    <fragment
         android:id="@+id/nav_qrCode"
         android:name="academy.bangkit.project.capstone.vaccinekituser.qrcode.QrcodeUserFragment"
         android:label="QrcodeUserFragment" />
+    <activity
+        android:id="@+id/profilActivity"
+        android:name="academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity"
+        android:label="activity_profil"
+        tools:layout="@layout/activity_profil" />
 </navigation>

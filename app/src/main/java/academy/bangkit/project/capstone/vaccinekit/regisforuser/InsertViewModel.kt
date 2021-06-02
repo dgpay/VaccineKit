@@ -1,4 +1,4 @@
-package academy.bangkit.project.capstone.vaccinekituser.insert
+package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.AddVaccineResponse
 import academy.bangkit.project.capstone.vaccinekit.core.domain.usecase.VaccineUseCase

@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_insert"
-        android:name="academy.bangkit.project.capstone.vaccinekit.insert.InsertFragment"
+        android:name="academy.bangkit.project.capstone.vaccinekit.regisforuser.RegisUserFragment"
         android:label="fragment_insert"
-        tools:layout="@layout/fragment_insert" />
+        tools:layout="@layout/fragment_regis_user" />
     <activity
         android:id="@+id/nav_detail"
         android:name="academy.bangkit.project.capstone.vaccinekit.detail.DetailVaccineActivity"
@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_qrcode" />
     <activity
         android:id="@+id/nav_camera"
-        android:name="academy.bangkit.project.capstone.vaccinekit.insert.InsertActivity"
+        android:name="academy.bangkit.project.capstone.vaccinekit.regisforuser.UploadActivity"
         android:label="activity_insert"
         tools:layout="@layout/activity_insert" />
 
