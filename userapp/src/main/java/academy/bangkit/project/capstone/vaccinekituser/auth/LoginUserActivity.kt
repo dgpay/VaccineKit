@@ -31,9 +31,6 @@ class LoginUserActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener {
             loginF()
         }
-//        binding.regTxtButton.setOnClickListener{
-//            register()
-//        }
     }
 
     private fun login() {
@@ -47,8 +44,7 @@ class LoginUserActivity : AppCompatActivity() {
         var pass = binding.pass.editableText
         var status = false
         val fstore = FirebaseFirestore.getInstance()
-        fstore.collection("coba").get().addOnCompleteListener{
-            val res:StringBuffer = StringBuffer()
+        fstore.collection("Users").get().addOnCompleteListener{
             if (it.isSuccessful){
                 for (document in it.result!!){
                     if(document.data.getValue("nik")==email.toString() && document.data.getValue("pass") == pass.toString()){

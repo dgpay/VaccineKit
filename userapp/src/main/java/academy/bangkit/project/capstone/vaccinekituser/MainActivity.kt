@@ -2,6 +2,7 @@ package academy.bangkit.project.capstone.vaccinekituser
 
 import academy.bangkit.project.capstone.vaccinekituser.auth.LoginUserActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityMainBinding
+import academy.bangkit.project.capstone.vaccinekituser.qrcode.QrcodeUserFragment
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -59,6 +60,10 @@ class MainActivity : AppCompatActivity() {
             mAuth.signOut()
             Toast.makeText(this, "Signed Out :(", Toast.LENGTH_LONG).show()
             startActivity(Intent(this, LoginUserActivity::class.java))
+        }
+        if (item?.itemId == R.id.nav_qrCode) {
+            Toast.makeText(this, "Signed Out :(", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this, QrcodeUserFragment::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
