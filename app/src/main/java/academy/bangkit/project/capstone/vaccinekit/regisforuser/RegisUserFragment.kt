@@ -38,19 +38,21 @@ class RegisUserFragment : Fragment() {
         val name = binding.edtName.text.toString()
         val ttl = binding.edtTtl.text.toString()
         val address = binding.edtAddress.text.toString()
-        val photo = binding.edtPhoto.text.toString()
+        val first = binding.edtFirstVaccine.text.toString()
+        val second = binding.edtSecondVaccine.text.toString()
+        val status = binding.edtStatusVaccine.text.toString()
 
         val user = hashMapOf(
             "nik" to nik,
             "name" to name,
             "ttl" to ttl,
             "address" to address,
-            "photo" to photo,
+            "photo" to nik,
             "qr_id" to "",
             "pass" to "12345",
-            "firstVaccineDate" to "",
-            "secondVaccineDate" to "",
-            "vaccineStatus" to ""
+            "firstVaccineDate" to first,
+            "secondVaccineDate" to second,
+            "vaccineStatus" to status
         )
 
         db.collection("users")

@@ -7,6 +7,15 @@
     android:padding="16dp"
     tools:context=".regisforuser.RegisUserFragment">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -76,6 +85,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/secondvaccine"
+            android:inputType="textCapSentences"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+        <EditText
+            android:id="@+id/edt_status_vaccine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/statusvaccine"
             android:inputType="textCapSentences"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
