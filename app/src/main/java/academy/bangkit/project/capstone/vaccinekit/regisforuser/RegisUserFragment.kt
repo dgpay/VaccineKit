@@ -5,26 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentInsertBinding
+import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentRegisUserBinding
 import android.content.ContentValues.TAG
 import android.util.Log
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import org.koin.android.viewmodel.ext.android.viewModel
 
-class InsertFragment : Fragment() {
+class RegisUserFragment : Fragment() {
 
-    private var _binding: FragmentInsertBinding? = null
+    private var _binding: FragmentRegisUserBinding? = null
     private val binding get() = _binding!!
     val db = Firebase.firestore
-    private val viewModel: InsertViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentInsertBinding.inflate(inflater, container, false)
+        _binding = FragmentRegisUserBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -49,6 +47,7 @@ class InsertFragment : Fragment() {
             "address" to address,
             "photo" to photo,
             "qr_id" to "",
+            "pass" to "12345",
             "firstVaccineDate" to "",
             "secondVaccineDate" to "",
             "vaccineStatus" to ""

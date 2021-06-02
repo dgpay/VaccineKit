@@ -19,8 +19,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VaccineKit">
-        <activity android:name=".profile.ProfilActivity"></activity>
-        <activity android:name=".auth.LoginUserActivity"></activity>
+        <activity android:name=".scanner.FaceActivity"></activity>
+        <activity android:name=".profile.ProfilActivity" />
+        <activity android:name=".auth.LoginUserActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

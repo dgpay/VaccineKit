@@ -18,7 +18,7 @@ import java.io.FileOutputStream
 import java.io.OutputStream
 import kotlin.random.Random
 
-class InsertActivity : AppCompatActivity() {
+class UploadActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInsertBinding
 

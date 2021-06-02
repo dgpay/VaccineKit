@@ -21,12 +21,20 @@ class QrcodeUserFragment : Fragment() {
     private val binding get() = _binding!!
     val contentText = "12uyr723g8fwef"
 
+    companion object {
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentQrcodeuserBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val data = contentText
         binding.buttonGenerate.setOnClickListener {
             if( data.isNotEmpty()){
@@ -35,7 +43,6 @@ class QrcodeUserFragment : Fragment() {
                 showSnackbarMessage("You are not yet got Vaccine")
             }
         }
-        return binding.root
     }
 
     private fun generateQr() {
@@ -54,6 +61,7 @@ class QrcodeUserFragment : Fragment() {
             e.printStackTrace()
         }
     }
+
     private fun showSnackbarMessage(message: String) {
         Snackbar.make(binding.myqrcode, message, Snackbar.LENGTH_SHORT).show()
     }
