@@ -1,6 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
-import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityInsertBinding
+import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityUploadBinding
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -20,7 +20,11 @@ import kotlin.random.Random
 
 class UploadActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityInsertBinding
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+    }
+
+    private lateinit var binding: ActivityUploadBinding
 
     private var image_path: String? = null
 
@@ -28,7 +32,7 @@ class UploadActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityInsertBinding.inflate(layoutInflater)
+        binding = ActivityUploadBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mStorageRef = FirebaseStorage.getInstance().reference
 
@@ -50,12 +54,12 @@ class UploadActivity : AppCompatActivity() {
     private fun upload(path: String){
         val file = Uri.fromFile(File(path))
         val meta = File(path)
-        val storageRef = mStorageRef?.child("photo_request_verif/${meta.name}")
+        val nik = intent.getStringExtra(EXTRA_DATA)
+        val storageRef = mStorageRef?.child("untrain/${nik}/${meta.name}")
 
         storageRef?.putFile(file)
             ?.addOnSuccessListener {
                 Toast.makeText(this, "File berhasil di upload", Toast.LENGTH_SHORT).show()
-                finish()
             }?.addOnFailureListener {
                 Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
             }

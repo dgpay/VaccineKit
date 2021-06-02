@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentRegisUserBinding
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.util.Log
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -57,10 +58,18 @@ class RegisUserFragment : Fragment() {
             .add(user)
             .addOnSuccessListener { documentReference ->
                 Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+                moveToUpload(nik)
             }
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)
             }
+
+    }
+
+    private fun moveToUpload(string: String) {
+        val intent = Intent(getActivity(), UploadActivity::class.java)
+        intent.putExtra(UploadActivity.EXTRA_DATA, string)
+        getActivity()?.startActivity(intent)
     }
 
     override fun onDestroyView() {

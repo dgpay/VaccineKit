@@ -32,5 +32,6 @@
     <string name="photo">Photo</string>
     <string name="secondvaccine">Second Vaccine</string>
     <string name="firstvaccine">First Vaccine</string>
+    <string name="selectionphoto">Selection Photo</string>
 
 </resources>
