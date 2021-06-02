@@ -1,6 +1,7 @@
 package academy.bangkit.project.capstone.vaccinekit.core.domain.usecase
 
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.AddVaccineResponse
+import academy.bangkit.project.capstone.vaccinekit.core.domain.model.NIKBarcode
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Verification
 import kotlinx.coroutines.flow.Flow
@@ -8,6 +9,7 @@ import kotlinx.coroutines.flow.Flow
 interface VaccineUseCase {
     fun getVaccineData(nik: String): Flow<Vaccine>
     fun getVerification(nik: String): Flow<Verification>
+    fun getNIKBarcode(nik: String,photos: String): Flow<NIKBarcode>
     fun addVaccineData(
         nik: String,
         name: String,
