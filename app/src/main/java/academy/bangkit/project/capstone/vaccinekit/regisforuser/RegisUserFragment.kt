@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentRegisUserBinding
 import android.content.ContentValues.TAG
-import android.content.Intent
 import android.util.Log
-import androidx.navigation.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -40,9 +38,7 @@ class RegisUserFragment : Fragment() {
         val name = binding.edtName.text.toString()
         val ttl = binding.edtTtl.text.toString()
         val address = binding.edtAddress.text.toString()
-        val first = binding.edtFirstVaccine.text.toString()
-        val second = binding.edtSecondVaccine.text.toString()
-        val status = binding.edtStatusVaccine.text.toString()
+//        val photo = binding.edtPhoto.text.toString()
 
         val user = hashMapOf(
             "nik" to nik,
@@ -52,9 +48,9 @@ class RegisUserFragment : Fragment() {
             "photo" to nik,
             "qr_id" to "",
             "pass" to "12345",
-            "firstVaccineDate" to first,
-            "secondVaccineDate" to second,
-            "vaccineStatus" to status
+            "firstVaccineDate" to "",
+            "secondVaccineDate" to "",
+            "vaccineStatus" to ""
         )
 
         db.collection("users")
@@ -65,12 +61,6 @@ class RegisUserFragment : Fragment() {
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)
             }
-    }
-
-    private fun navigateToUpdate(string: String, v:View) {
-        val toUploadActivity = RegisUserFragmentDirections.actionNavInsertToUploadActivity()
-        toUploadActivity.nikuser = string
-        v.findNavController().navigate(toUploadActivity)
     }
 
     override fun onDestroyView() {
