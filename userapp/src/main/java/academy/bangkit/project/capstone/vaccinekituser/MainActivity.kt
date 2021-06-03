@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private var mAuth = FirebaseAuth.getInstance()
-    var user = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,10 +57,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item?.itemId == R.id.nav_logout_user) {
-            Toast.makeText(this, "Signed Out :(", Toast.LENGTH_LONG).show()
             startActivity(Intent(this, LoginUserActivity::class.java))
         }
-
         return super.onOptionsItemSelected(item)
     }
 

@@ -13,6 +13,10 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class ProfilActivity : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_NIK = "extra_nik"
+    }
+
     private lateinit var binding: ActivityProfilBinding
     private val viewModel: ProfileViewModel by viewModel()
 
@@ -21,9 +25,11 @@ class ProfilActivity : AppCompatActivity() {
         binding = ActivityProfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val nik = intent.getStringExtra(EXTRA_NIK)
+
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
-                viewModel.getVaccineData("0000000000000014").collectLatest {
+                viewModel.getVaccineData(nik.toString()).collectLatest {
                     showData(it)
                 }
             }

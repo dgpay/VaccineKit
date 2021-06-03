@@ -1,27 +1,24 @@
 package academy.bangkit.project.capstone.vaccinekituser.auth
 
-import academy.bangkit.project.capstone.vaccinekituser.Entity
 import academy.bangkit.project.capstone.vaccinekituser.MainActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityLoginBinding
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class LoginUserActivity : AppCompatActivity() {
 
-    var mAuth = FirebaseAuth.getInstance()
     private lateinit var binding: ActivityLoginBinding
-    val db = Firebase.firestore
 
+    private val viewModel: LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,33 +26,31 @@ class LoginUserActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.loginBtn.setOnClickListener {
-            loginF()
+            login()
         }
     }
 
     private fun login() {
-        var email = binding.user.editableText
+        var nik = binding.user.editableText
         var pass = binding.pass.editableText
-
-    }
-
-    private fun loginF() {
-        var email = binding.user.editableText
-        var pass = binding.pass.editableText
-        var status = false
-        val fstore = FirebaseFirestore.getInstance()
-        fstore.collection("users").get().addOnCompleteListener{
-            if (it.isSuccessful){
-                for (document in it.result!!){
-                    if(document.data.getValue("nik")==email.toString() && document.data.getValue("pass") == pass.toString()){
-                        status =true
+        lifecycleScope.launch(Dispatchers.Default) {
+            withContext(Dispatchers.Main) {
+                viewModel.LoginUser(nik.toString(), pass.toString()).collectLatest {
+                    if (it.statusVerification == "ok") {
+                        moveToMain()
+                    } else {
+                        Toast.makeText(this@LoginUserActivity, "Login Failed",Toast.LENGTH_SHORT).show()
                     }
                 }
-                if(status == true){
-                    startActivity(Intent(this, MainActivity::class.java))}
             }
         }
-        }
+    }
+
+    private fun moveToMain() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 
 }
 

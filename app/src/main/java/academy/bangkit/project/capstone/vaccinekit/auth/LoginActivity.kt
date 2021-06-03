@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
             login()
         }
         binding.regTxtButton.setOnClickListener{
-            register()
+
         }
     }
 
@@ -45,9 +45,5 @@ class LoginActivity : AppCompatActivity() {
         }else {
             Toast.makeText(this, "Please fill up the Credentials :|", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun register () {
-//        startActivity(Intent(this, RegisterActivity::class.java))
     }
 }

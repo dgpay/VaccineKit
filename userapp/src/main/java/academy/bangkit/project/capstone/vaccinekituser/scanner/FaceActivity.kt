@@ -1,6 +1,7 @@
 package academy.bangkit.project.capstone.vaccinekituser.scanner
 
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityFaceBinding
+import academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity
 import academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode.QrCodeUserActivity
 import android.app.Activity
 import android.content.Intent
@@ -46,9 +47,10 @@ class  FaceActivity : AppCompatActivity() {
         binding = ActivityFaceBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mStorageRef = FirebaseStorage.getInstance().reference
+        val nik = intent.getStringExtra(ProfilActivity.EXTRA_NIK)
         binding.btnUpload.setOnClickListener {
-//            upload(image_path.toString())
-            checkBarcode("", image_path.toString())
+            upload(image_path.toString())
+            checkBarcode(nik.toString(), image_path.toString())
         }
         binding.btnOpen.setOnClickListener {
             cameraIntent()
@@ -61,9 +63,11 @@ class  FaceActivity : AppCompatActivity() {
     private fun checkBarcode(nik: String, path: String) {
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
-                viewModel.getVerifByNIKphoto("0000000000000048","0000000000000048.jpg").collectLatest {
+                viewModel.getVerifByNIKphoto(nik,path).collectLatest {
                     if (it.verification == "ok") {
                         moveToBarcode(it.barcode)
+                    } else {
+                        Toast.makeText(this@FaceActivity, "Not Match", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

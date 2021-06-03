@@ -31,9 +31,9 @@ class QrCodeUserActivity : AppCompatActivity() {
         try {
             val bitMatrix = multiFormatWriter.encode(
                 string,
-                BarcodeFormat.QR_CODE,
-                300,
-                300
+                BarcodeFormat.CODE_128,
+                900,
+                200
             )
             val barcodeEncoder = BarcodeEncoder()
             val bitmap = barcodeEncoder.createBitmap(bitMatrix)

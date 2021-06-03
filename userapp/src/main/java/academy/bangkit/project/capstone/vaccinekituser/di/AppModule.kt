@@ -2,6 +2,7 @@ package academy.bangkit.project.capstone.vaccinekituser.di
 
 import academy.bangkit.project.capstone.vaccinekit.core.domain.usecase.VaccineInteractor
 import academy.bangkit.project.capstone.vaccinekit.core.domain.usecase.VaccineUseCase
+import academy.bangkit.project.capstone.vaccinekituser.auth.LoginViewModel
 import academy.bangkit.project.capstone.vaccinekituser.profile.ProfileViewModel
 import academy.bangkit.project.capstone.vaccinekituser.scanner.FaceViewModel
 import org.koin.android.viewmodel.dsl.viewModel
@@ -14,4 +15,5 @@ val useCaseModule = module {
 val viewModelModule = module {
     viewModel { ProfileViewModel(get()) }
     viewModel { FaceViewModel(get()) }
+    viewModel { LoginViewModel(get()) }
 }
