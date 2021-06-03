@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item?.itemId == R.id.nav_logout_user) {
+        if (item?.itemId == R.id.signOut) {
             startActivity(Intent(this, LoginUserActivity::class.java))
         }
         return super.onOptionsItemSelected(item)

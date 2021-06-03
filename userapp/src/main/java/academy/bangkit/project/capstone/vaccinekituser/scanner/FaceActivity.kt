@@ -1,5 +1,7 @@
 package academy.bangkit.project.capstone.vaccinekituser.scanner
 
+import academy.bangkit.project.capstone.vaccinekituser.Helper.Constant
+import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityFaceBinding
 import academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity
 import academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode.QrCodeUserActivity
@@ -42,15 +44,18 @@ class  FaceActivity : AppCompatActivity() {
         const val EXTRA_NIK = "extra_nik"
     }
 
+    lateinit var sharedpref: PreferenceHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFaceBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mStorageRef = FirebaseStorage.getInstance().reference
+
+        val NIK = sharedpref.getString(Constant.PREF_NIK)
         val nik = intent.getStringExtra(ProfilActivity.EXTRA_NIK)
         binding.btnUpload.setOnClickListener {
             upload(image_path.toString())
-            checkBarcode(nik.toString(), image_path.toString())
+            checkBarcode(NIK.toString(), image_path.toString())
         }
         binding.btnOpen.setOnClickListener {
             cameraIntent()

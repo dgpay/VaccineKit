@@ -1,6 +1,8 @@
 package academy.bangkit.project.capstone.vaccinekituser.profile
 
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine
+import academy.bangkit.project.capstone.vaccinekituser.Helper.Constant
+import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityProfilBinding
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,6 +19,8 @@ class ProfilActivity : AppCompatActivity() {
         const val EXTRA_NIK = "extra_nik"
     }
 
+    lateinit var sharedpref: PreferenceHelper
+
     private lateinit var binding: ActivityProfilBinding
     private val viewModel: ProfileViewModel by viewModel()
 
@@ -25,7 +29,12 @@ class ProfilActivity : AppCompatActivity() {
         binding = ActivityProfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val nik = intent.getStringExtra(EXTRA_NIK)
+        val nik = intent.getStringExtra(EXTRA_NIK).toString()
+
+        sharedpref = PreferenceHelper(this)
+        val NIK = sharedpref.getString(Constant.PREF_NIK)
+        binding.tvNik.text = NIK
+
 
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
