@@ -4,6 +4,9 @@ import academy.bangkit.project.capstone.vaccinekituser.Helper.Constant
 import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.MainActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityLoginBinding
+import academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity
+import academy.bangkit.project.capstone.vaccinekituser.scanner.FaceActivity
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log

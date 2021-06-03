@@ -31,5 +31,9 @@
     <string name="submit">Submit</string>
     <string name="photo">Photo</string>
     <string name="selectionphoto">Selection Photo</string>
+    <string name="firstvaccine">First Vaccine</string>
+    <string name="secondVaccine">Second Vaccine</string>
+    <string name="vaccineinfo">Vaccine Information</string>
+    <string name="havevaccine">Vaccine at:</string>
 
 </resources>

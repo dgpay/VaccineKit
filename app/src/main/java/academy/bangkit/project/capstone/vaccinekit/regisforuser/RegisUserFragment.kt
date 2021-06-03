@@ -49,8 +49,8 @@ class RegisUserFragment : Fragment() {
             "ttl" to ttl,
             "address" to address,
             "photo" to nik,
-            "qr_id" to "",
-            "pass" to "12345",
+            "barcode" to "",
+            "password" to "123456",
             "firstVaccineDate" to first,
             "secondVaccineDate" to second,
             "vaccineStatus" to status

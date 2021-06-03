@@ -35,5 +35,8 @@
     <string name="selectionphoto">Selection Photo</string>
     <string name="statusvaccine">Status Vaccine</string>
     <string name="regisuser">User Registration</string>
+    <string name="secondVaccine">Second Vaccine</string>
+    <string name="vaccineinfo">Vaccine Info</string>
+    <string name="havevaccine">Vaccine at:</string>
 
 </resources>
