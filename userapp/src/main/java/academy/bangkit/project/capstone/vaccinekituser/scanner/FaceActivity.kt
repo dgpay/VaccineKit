@@ -40,10 +40,6 @@ class  FaceActivity : AppCompatActivity() {
 
     private val viewModel: FaceViewModel by viewModel()
 
-    companion object {
-        const val EXTRA_NIK = "extra_nik"
-    }
-
     lateinit var sharedpref: PreferenceHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

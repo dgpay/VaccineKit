@@ -15,10 +15,6 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class ProfilActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_NIK = "extra_nik"
-    }
-
     lateinit var sharedpref: PreferenceHelper
 
     private lateinit var binding: ActivityProfilBinding
@@ -29,8 +25,6 @@ class ProfilActivity : AppCompatActivity() {
         binding = ActivityProfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val nik = intent.getStringExtra(EXTRA_NIK).toString()
-
         sharedpref = PreferenceHelper(this)
         val NIK = sharedpref.getString(Constant.PREF_NIK)
         binding.tvNik.text = NIK
@@ -38,7 +32,7 @@ class ProfilActivity : AppCompatActivity() {
 
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
-                viewModel.getVaccineData(nik.toString()).collectLatest {
+                viewModel.getVaccineData(NIK.toString()).collectLatest {
                     showData(it)
                 }
             }
@@ -48,5 +42,7 @@ class ProfilActivity : AppCompatActivity() {
     private fun showData(vaccine: Vaccine) {
         binding.tvName.text = vaccine.name
         binding.tvAddress.text = vaccine.address
+        binding.tvNik.text = vaccine.nik
+        binding.tvTtl.text = vaccine.ttl
     }
 }
