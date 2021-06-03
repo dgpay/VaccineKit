@@ -2,7 +2,7 @@ package academy.bangkit.project.capstone.vaccinekituser
 
 import academy.bangkit.project.capstone.vaccinekituser.auth.LoginUserActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityMainBinding
-import academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode.QrcodeUserFragment
+
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -34,15 +34,17 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home,
+            R.id.nav_home_user,
             R.id.nav_insert,
+            R.id.nav_profile,
             R.id.nav_detail,
-            R.id.nav_qrcode,
+            R.id.qrCodeUserActivity,
             R.id.nav_lose_band
         ), binding.drawerLayout)
 
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment), appBarConfiguration)
         binding.navView.setupWithNavController(findNavController(R.id.nav_host_fragment))
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -56,15 +58,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item?.itemId == R.id.signOut) {
-            mAuth.signOut()
+        if (item?.itemId == R.id.nav_logout_user) {
             Toast.makeText(this, "Signed Out :(", Toast.LENGTH_LONG).show()
             startActivity(Intent(this, LoginUserActivity::class.java))
         }
-        if (item?.itemId == R.id.nav_qrCode) {
-            Toast.makeText(this, "Signed Out :(", Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, QrcodeUserFragment::class.java))
-        }
+
         return super.onOptionsItemSelected(item)
     }
 

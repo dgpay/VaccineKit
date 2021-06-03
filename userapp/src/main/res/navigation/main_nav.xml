@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/nav_home_user">
 
     <fragment
         android:id="@+id/nav_home"
@@ -23,4 +23,15 @@
         android:name="academy.bangkit.project.capstone.vaccinekituser.scanner.FaceActivity"
         android:label="activity_face"
         tools:layout="@layout/activity_face" />
+
+    <fragment
+        android:id="@+id/nav_home_user"
+        android:name="academy.bangkit.project.capstone.vaccinekituser.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <activity
+        android:id="@+id/qrCodeUserActivity"
+        android:name="academy.bangkit.project.capstone.vaccinekituser.qrcode.QrCodeUserActivity"
+        android:label="activity_qr_code_user"
+        tools:layout="@layout/activity_qr_code_user" />
 </navigation>
