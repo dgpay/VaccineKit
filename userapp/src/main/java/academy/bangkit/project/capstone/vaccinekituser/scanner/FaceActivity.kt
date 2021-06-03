@@ -19,7 +19,7 @@ import java.io.IOException
 import java.io.OutputStream
 import kotlin.random.Random
 
-class FaceActivity : AppCompatActivity() {
+class  FaceActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFaceBinding
     private var image_path: String? = null
