@@ -10,11 +10,6 @@
         android:name="academy.bangkit.project.capstone.vaccinekituser.home.HomeFragment"
         android:label="HomeFragment" />
     <activity
-        android:id="@+id/nav_profile"
-        android:name="academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity"
-        android:label="activity_profil"
-        tools:layout="@layout/activity_profil" />
-    <activity
         android:id="@+id/nav_lose_band"
         android:name="academy.bangkit.project.capstone.vaccinekituser.scanner.FaceActivity"
         android:label="activity_face"
@@ -25,4 +20,9 @@
         android:name="academy.bangkit.project.capstone.vaccinekituser.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <activity
+        android:id="@+id/nav_prof"
+        android:name="academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity"
+        android:label="activity_profil"
+        tools:layout="@layout/activity_profil" />
 </navigation>

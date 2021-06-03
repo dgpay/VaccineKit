@@ -24,12 +24,12 @@ class ProfilActivity : AppCompatActivity() {
         binding = ActivityProfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sharedpref = PreferenceHelper(this)
+        sharedpref = PreferenceHelper(this@ProfilActivity)
         val NIK = sharedpref.getString(Constant.PREF_NIK)
 
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
-                viewModel.getVaccineData(NIK.toString()).collectLatest {
+                viewModel.getVaccineData(NIK!!).collectLatest {
                     showData(it)
                 }
             }
