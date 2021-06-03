@@ -1,5 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekituser
 
+import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.auth.LoginUserActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityMainBinding
 
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var sharedpref: PreferenceHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment), appBarConfiguration)
         binding.navView.setupWithNavController(findNavController(R.id.nav_host_fragment))
 
+        sharedpref = PreferenceHelper(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -56,7 +59,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item?.itemId == R.id.nav_logout_user) {
+        if (item?.itemId == R.id.signOut) {
+            sharedpref.clear()
             startActivity(Intent(this, LoginUserActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
