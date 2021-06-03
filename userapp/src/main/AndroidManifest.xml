@@ -22,18 +22,17 @@
         android:theme="@style/Theme.VaccineKit">
         <activity android:name=".profile.ProfilActivity"></activity>
         <activity android:name=".scanner.qrcode.QrCodeUserActivity"></activity>
-        <activity android:name=".scanner.FaceActivity" />
+        <activity android:name=".scanner.FaceActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name=".auth.LoginUserActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".qrcode.QrCodeUserActivity"></activity>
-        <activity android:name=".auth.LoginUserActivity">
-
         </activity>
     </application>
 

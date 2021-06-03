@@ -1,5 +1,7 @@
 package academy.bangkit.project.capstone.vaccinekit.core.data
 
+import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.RemoteDataSource
+import academy.bangkit.project.capstone.vaccinekit.core.domain.model.LoginUser
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.NIKBarcode
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Verification
@@ -8,7 +10,12 @@ import academy.bangkit.project.capstone.vaccinekit.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class VaccineRepository(private val remoteDataSource: academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.RemoteDataSource) : IVaccineRepository {
+class VaccineRepository(private val remoteDataSource: RemoteDataSource) : IVaccineRepository {
+    override fun loginUser(nik: String, pass: String): Flow<LoginUser> {
+        return remoteDataSource.loginUser(nik, pass).map {
+            DataMapper.mapLoginUser(it)
+        }
+    }
 
     override fun getVaccineData(nik: String): Flow<Vaccine> {
         return remoteDataSource.getVaccineData(nik).map {

@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class VaccineResponse(
 
-	@field:SerializedName("vaccineStatus")
-	val vaccineStatus: String,
-
 	@field:SerializedName("date")
 	val date: String,
+
+	@field:SerializedName("vaccineStatus")
+	val vaccineStatus: String,
 
 	@field:SerializedName("nik")
 	val nik: String,
@@ -19,18 +19,18 @@ data class VaccineResponse(
 	@field:SerializedName("address")
 	val address: String,
 
-	@field:SerializedName("qr_id")
-	val qrId: String,
+	@field:SerializedName("name")
+	val name: String,
 
 	@field:SerializedName("secondVaccineDate")
 	val secondVaccineDate: String,
-
-	@field:SerializedName("name")
-	val name: String,
 
 	@field:SerializedName("photo")
 	val photo: String,
 
 	@field:SerializedName("ttl")
-	val ttl: String
+	val ttl: String,
+
+	@field:SerializedName("barcode")
+	val barcode: String
 )

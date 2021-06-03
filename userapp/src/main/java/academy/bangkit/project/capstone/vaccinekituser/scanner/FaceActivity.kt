@@ -47,7 +47,7 @@ class  FaceActivity : AppCompatActivity() {
         setContentView(binding.root)
         mStorageRef = FirebaseStorage.getInstance().reference
         binding.btnUpload.setOnClickListener {
-            upload(image_path.toString())
+//            upload(image_path.toString())
             checkBarcode("", image_path.toString())
         }
         binding.btnOpen.setOnClickListener {
@@ -64,8 +64,6 @@ class  FaceActivity : AppCompatActivity() {
                 viewModel.getVerifByNIKphoto("0000000000000048","0000000000000048.jpg").collectLatest {
                     if (it.verification == "ok") {
                         moveToBarcode(it.barcode)
-                    } else {
-
                     }
                 }
             }

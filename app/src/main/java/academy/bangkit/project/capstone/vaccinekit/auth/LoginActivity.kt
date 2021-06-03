@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     startActivity(Intent(this, MainActivity::class.java))
                     Toast.makeText(this, "Successfully Logged in :)", Toast.LENGTH_LONG).show()
+                    finish()
                 } else {
                     Toast.makeText(this, "Error Logging in :(", Toast.LENGTH_SHORT).show()
                 }

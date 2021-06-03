@@ -1,9 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.network
 
-import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.AddVaccineResponse
-import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.NIKBarcodeResponse
-import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VaccineResponse
-import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.VerifResponse
+import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.*
 import retrofit2.http.*
 
 interface ApiService {
@@ -41,4 +38,10 @@ interface ApiService {
         @Query("nik") nik: String,
         @Query("photo") photo: String
     ) : NIKBarcodeResponse
+
+    @GET("verification_account")
+    suspend fun getLoginUser(
+        @Query("nik") nik: String,
+        @Query("password") password: String
+    ) : LoginUserResponse
 }
