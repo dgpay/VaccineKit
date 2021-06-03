@@ -20,6 +20,11 @@
         android:name="academy.bangkit.project.capstone.vaccinekit.checkvaccine.ScannerBarcodeActivity"
         android:label="activity_scanner_barcode"
         tools:layout="@layout/activity_scanner_barcode" />
+    <activity
+        android:id="@+id/detail"
+        android:name="academy.bangkit.project.capstone.vaccinekit.checkvaccine.detail.DetailVaccineActivity"
+        android:label="activity_detail_vaccine"
+        tools:layout="@layout/activity_detail_vaccine" />
 
 
 </navigation>

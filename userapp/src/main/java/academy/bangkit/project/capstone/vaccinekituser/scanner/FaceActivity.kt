@@ -3,7 +3,6 @@ package academy.bangkit.project.capstone.vaccinekituser.scanner
 import academy.bangkit.project.capstone.vaccinekituser.Helper.Constant
 import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityFaceBinding
-import academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity
 import academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode.QrCodeUserActivity
 import android.app.Activity
 import android.content.Intent
@@ -47,8 +46,8 @@ class  FaceActivity : AppCompatActivity() {
         setContentView(binding.root)
         mStorageRef = FirebaseStorage.getInstance().reference
 
+        sharedpref = PreferenceHelper(this)
         val NIK = sharedpref.getString(Constant.PREF_NIK)
-        val nik = intent.getStringExtra(ProfilActivity.EXTRA_NIK)
         binding.btnUpload.setOnClickListener {
             upload(image_path.toString())
             checkBarcode(NIK.toString(), image_path.toString())

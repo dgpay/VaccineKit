@@ -29,7 +29,7 @@ class DetailVaccineActivity : AppCompatActivity() {
 
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
-                viewModel.getDataByBarcode(barcode.toString()).collectLatest {
+                viewModel.getDataByBarcode("0000000000000051CixSB").collectLatest {
                         showData(it)
                     }
                 }
@@ -39,6 +39,10 @@ class DetailVaccineActivity : AppCompatActivity() {
     private fun showData(vaccine: Vaccine) {
         binding.tvName.text = vaccine.name
         binding.tvAddress.text = vaccine.address
+        binding.tvNik.text = vaccine.nik
+        binding.tvTtl.text = vaccine.ttl
+        binding.tvFirstVaccine.text = vaccine.firstVaccineDate
+        binding.tvSecondVaccine.text = vaccine.secondVaccineDate
     }
 }
 

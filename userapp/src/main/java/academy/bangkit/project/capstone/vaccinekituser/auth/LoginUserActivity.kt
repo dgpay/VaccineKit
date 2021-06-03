@@ -4,22 +4,29 @@ import academy.bangkit.project.capstone.vaccinekituser.Helper.Constant
 import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.MainActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityLoginBinding
+import academy.bangkit.project.capstone.vaccinekituser.profile.ProfileViewModel
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class LoginUserActivity : AppCompatActivity() {
 
-    var mAuth = FirebaseAuth.getInstance()
+//    var mAuth = FirebaseAuth.getInstance()
     private lateinit var binding: ActivityLoginBinding
-    val db = Firebase.firestore
+//    val db = Firebase.firestore
 
+    private val viewModel: LoginViewModel by viewModel()
     lateinit var sharedpref: PreferenceHelper
 
 
@@ -30,36 +37,43 @@ class LoginUserActivity : AppCompatActivity() {
 
         sharedpref = PreferenceHelper(this)
 
-
         binding.loginBtn.setOnClickListener {
-            loginF()
+            login()
         }
     }
 
     private fun login() {
-        var email = binding.user.editableText
-        var pass = binding.pass.editableText
-
-    }
-
-    private fun loginF() {
-        var nik = binding.user.editableText
-        var pass = binding.pass.editableText
-        var status = false
-        val fstore = FirebaseFirestore.getInstance()
-        fstore.collection("coba").get().addOnCompleteListener{
-            if (it.isSuccessful){
-                for (document in it.result!!){
-                    if(document.data.getValue("nik")==nik.toString() && document.data.getValue("pass") == pass.toString()){
-                        //contoh
-                            saveSession(document.data.getValue("nik").toString(),document.data.getValue("pass").toString())
-                        status =true
-                        moveIntent()
-                    }
+        var nik = binding.user.editableText.toString()
+        var pass = binding.pass.editableText.toString()
+        lifecycleScope.launch(Dispatchers.Default) {
+            withContext(Dispatchers.Main) {
+                viewModel.LoginUser(nik, pass).collectLatest {
+                    saveSession(nik,pass)
+                    moveIntent()
                 }
             }
         }
-        }
+
+    }
+
+//    private fun loginF() {
+//        var nik = binding.user.editableText
+//        var pass = binding.pass.editableText
+//        var status = false
+//        val fstore = FirebaseFirestore.getInstance()
+//        fstore.collection("coba").get().addOnCompleteListener{
+//            if (it.isSuccessful){
+//                for (document in it.result!!){
+//                    if(document.data.getValue("nik")==nik.toString() && document.data.getValue("pass") == pass.toString()){
+//                        //contoh
+//                            saveSession(document.data.getValue("nik").toString(),document.data.getValue("pass").toString())
+//                        status =true
+//                        moveIntent()
+//                    }
+//                }
+//            }
+//        }
+//        }
 
     override fun onStart() {
         super.onStart()
