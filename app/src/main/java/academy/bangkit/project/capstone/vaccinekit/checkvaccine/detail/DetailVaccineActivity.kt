@@ -29,7 +29,7 @@ class DetailVaccineActivity : AppCompatActivity() {
 
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
-                viewModel.getDataByBarcode("0000000000000051CixSB").collectLatest {
+                viewModel.getDataByBarcode(barcode.toString()).collectLatest {
                         showData(it)
                     }
                 }
