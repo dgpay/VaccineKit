@@ -1,4 +1,4 @@
-package academy.bangkit.project.capstone.vaccinekituser.qrcode
+package academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

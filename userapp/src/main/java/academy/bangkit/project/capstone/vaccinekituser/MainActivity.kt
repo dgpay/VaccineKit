@@ -2,7 +2,7 @@ package academy.bangkit.project.capstone.vaccinekituser
 
 import academy.bangkit.project.capstone.vaccinekituser.auth.LoginUserActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityMainBinding
-import academy.bangkit.project.capstone.vaccinekituser.qrcode.QrcodeUserFragment
+import academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode.QrcodeUserFragment
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity

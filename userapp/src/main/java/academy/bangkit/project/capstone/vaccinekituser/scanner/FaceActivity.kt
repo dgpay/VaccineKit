@@ -1,6 +1,7 @@
 package academy.bangkit.project.capstone.vaccinekituser.scanner
 
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityFaceBinding
+import academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode.QrCodeUserActivity
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
@@ -11,13 +12,19 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
 import kotlin.random.Random
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class  FaceActivity : AppCompatActivity() {
 
@@ -25,7 +32,14 @@ class  FaceActivity : AppCompatActivity() {
     private var image_path: String? = null
     private var mStorageRef: StorageReference? = null
     private val PICK_IMAGE_REQUEST = 71
+    private val PICK_CAMERA = 101
     private var filePath: Uri? = null
+
+    private val viewModel: FaceViewModel by viewModel()
+
+    companion object {
+        const val EXTRA_NIK = "extra_nik"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +48,7 @@ class  FaceActivity : AppCompatActivity() {
         mStorageRef = FirebaseStorage.getInstance().reference
         binding.btnUpload.setOnClickListener {
             upload(image_path.toString())
+            checkBarcode("", image_path.toString())
         }
         binding.btnOpen.setOnClickListener {
             cameraIntent()
@@ -43,9 +58,29 @@ class  FaceActivity : AppCompatActivity() {
         }
     }
 
+    private fun checkBarcode(nik: String, path: String) {
+        lifecycleScope.launch(Dispatchers.Default) {
+            withContext(Dispatchers.Main) {
+                viewModel.getVerifByNIKphoto(nik,path).collectLatest {
+                    if (it.verification == "ok") {
+                        moveToBarcode(it.barcode)
+                    } else {
+
+                    }
+                }
+            }
+        }
+    }
+
+    private fun moveToBarcode(string: String) {
+        val intent = Intent(this, QrCodeUserActivity::class.java)
+        intent.putExtra(QrCodeUserActivity.EXTRA_DATA, string)
+        startActivity(intent)
+    }
+
     private fun cameraIntent() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(intent, 101)
+        startActivityForResult(intent, PICK_CAMERA)
     }
 
     private fun upload(path: String){
@@ -99,7 +134,10 @@ class  FaceActivity : AppCompatActivity() {
         filePath = data.data
         try {
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
-            binding.imgView.setImageBitmap(bitmap)
+            val random = Random.nextInt(0, 999999)
+            val name_file = "Camera$random"
+            image_path = persistImage(bitmap, name_file)
+            binding.imgView.setImageBitmap(BitmapFactory.decodeFile(image_path))
         } catch (e: IOException) {
             e.printStackTrace()
         }
@@ -108,9 +146,10 @@ class  FaceActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == 101) {
+            if (requestCode == PICK_CAMERA) {
                 resultCamera(data)
-            } else if (requestCode == PICK_IMAGE_REQUEST) {
+            }
+            else if (requestCode == PICK_IMAGE_REQUEST) {
                 resultGallery(data)
             }
         }

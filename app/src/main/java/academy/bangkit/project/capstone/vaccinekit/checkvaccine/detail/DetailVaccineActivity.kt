@@ -35,9 +35,9 @@ class DetailVaccineActivity : AppCompatActivity() {
                 }
             }
         }
-    }
 
     private fun showData(vaccine: Vaccine) {
 
     }
 }
+

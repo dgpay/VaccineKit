@@ -39,6 +39,6 @@ interface ApiService {
     @GET("http://34.101.148.177:8000/photo_verification")
     suspend fun getVerifBarcodeNIK(
         @Query("nik") nik: String,
-        @Query("nik") photo: String
+        @Query("photo") photo: String
     ) : NIKBarcodeResponse
 }
