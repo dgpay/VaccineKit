@@ -31,7 +31,6 @@
             </intent-filter>
         </activity>
         <activity android:name="academy.bangkit.project.capstone.vaccinekit.checkvaccine.detail.DetailVaccineActivity" />
-        <activity android:name=".auth.RegisterActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

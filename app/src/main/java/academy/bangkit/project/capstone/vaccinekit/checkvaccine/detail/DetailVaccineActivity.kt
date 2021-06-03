@@ -37,7 +37,8 @@ class DetailVaccineActivity : AppCompatActivity() {
         }
 
     private fun showData(vaccine: Vaccine) {
-
+        binding.tvName.text = vaccine.name
+        binding.tvAddress.text = vaccine.address
     }
 }
 

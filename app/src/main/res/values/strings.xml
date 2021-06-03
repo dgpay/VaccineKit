@@ -34,5 +34,6 @@
     <string name="firstvaccine">First Vaccine</string>
     <string name="selectionphoto">Selection Photo</string>
     <string name="statusvaccine">Status Vaccine</string>
+    <string name="regisuser">User Registration</string>
 
 </resources>

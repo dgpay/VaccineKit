@@ -9,12 +9,8 @@
         android:id="@+id/nav_home"
         android:name="academy.bangkit.project.capstone.vaccinekituser.home.HomeFragment"
         android:label="HomeFragment" />
-    <fragment
-        android:id="@+id/nav_qrCode"
-        android:name="academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode.QrcodeUserFragment"
-        android:label="QrcodeUserFragment" />
     <activity
-        android:id="@+id/profilActivity"
+        android:id="@+id/nav_profile"
         android:name="academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity"
         android:label="activity_profil"
         tools:layout="@layout/activity_profil" />

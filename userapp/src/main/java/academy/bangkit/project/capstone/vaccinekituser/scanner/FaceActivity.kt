@@ -61,7 +61,7 @@ class  FaceActivity : AppCompatActivity() {
     private fun checkBarcode(nik: String, path: String) {
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
-                viewModel.getVerifByNIKphoto(nik,path).collectLatest {
+                viewModel.getVerifByNIKphoto("0000000000000048","0000000000000048.jpg").collectLatest {
                     if (it.verification == "ok") {
                         moveToBarcode(it.barcode)
                     } else {

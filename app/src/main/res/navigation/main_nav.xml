@@ -16,15 +16,10 @@
         android:label="fragment_insert"
         tools:layout="@layout/fragment_regis_user" />
     <activity
-        android:id="@+id/nav_detail"
-        android:name="academy.bangkit.project.capstone.vaccinekit.checkvaccine.detail.DetailVaccineActivity"
-        android:label="activity_detail_vaccine"
-        tools:layout="@layout/activity_detail_vaccine" />
-    <activity
-        android:id="@+id/nav_camera"
-        android:name="academy.bangkit.project.capstone.vaccinekit.regisforuser.UploadActivity"
-        android:label="activity_insert"
-        tools:layout="@layout/activity_upload" />
+        android:id="@+id/nav_lost"
+        android:name="academy.bangkit.project.capstone.vaccinekit.checkvaccine.ScannerBarcodeActivity"
+        android:label="activity_scanner_barcode"
+        tools:layout="@layout/activity_scanner_barcode" />
 
 
 </navigation>

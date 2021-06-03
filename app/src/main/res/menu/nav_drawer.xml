@@ -10,34 +10,17 @@
             android:title="@string/menu_home" />
 
         <item
-            android:id="@+id/nav_qrcode"
-            android:icon="@drawable/qr_code_icon"
-            android:title="@string/my_barcode" />
-
-        <item
-            android:id="@+id/nav_health_record"
-            android:icon="@drawable/health_record_diary_icon"
-            android:title="@string/health_record" />
-        <item
-            android:id="@+id/nav_report_loss"
+            android:id="@+id/nav_lost"
             android:icon="@drawable/lost_report_icon"
             android:title="@string/lost_report" />
 
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_baseline_person_outline_24"
-            android:title="@string/profil" />
+            android:id="@+id/nav_insert"
+            android:title="@string/regisuser"
+            android:icon="@drawable/ic_add_24"/>
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_baseline_logout_24"
             android:title="@string/logout" />
-        <item
-            android:id="@+id/nav_insert"
-            android:title="Insert"
-            android:icon="@drawable/ic_add_24"/>
-        <item
-            android:id="@+id/nav_detail"
-            android:title="Detail"
-            android:icon="@drawable/ic_baseline_detail"/>
     </group>
 </menu>

@@ -36,7 +36,7 @@ interface ApiService {
         @Field("vaccineStatus") vaccineStatus: String
     ): AddVaccineResponse
 
-    @GET("http://34.101.148.177:8000/photo_verification")
+    @GET("photo_verification")
     suspend fun getVerifBarcodeNIK(
         @Query("nik") nik: String,
         @Query("photo") photo: String

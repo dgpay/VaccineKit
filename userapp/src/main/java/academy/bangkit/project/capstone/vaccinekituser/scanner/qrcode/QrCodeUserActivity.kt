@@ -21,6 +21,9 @@ class QrCodeUserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityQrCodeUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val intent = intent.getStringExtra(EXTRA_DATA)
+        generateQr(intent.toString())
     }
 
     private fun generateQr(string: String) {
