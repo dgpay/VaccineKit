@@ -27,4 +27,7 @@ class PreferenceHelper (context: Context){
         return sharedpref.getBoolean(key, false)
     }
 
+    fun clear(){
+        editor.clear().apply()
+    }
 }
