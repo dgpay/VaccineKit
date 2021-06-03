@@ -4,15 +4,10 @@ import academy.bangkit.project.capstone.vaccinekituser.Helper.Constant
 import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.MainActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityLoginBinding
-import academy.bangkit.project.capstone.vaccinekituser.profile.ProfileViewModel
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -75,12 +70,13 @@ class LoginUserActivity : AppCompatActivity() {
 //        }
 //        }
 
-    override fun onStart() {
-        super.onStart()
-        if(sharedpref.getBoolean(Constant.PREF_IS_LOGIN)){
-            moveIntent()
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        if(sharedpref.getBoolean(Constant.PREF_IS_LOGIN)){
+//            moveIntent()
+//        }
+//    }
+
     private fun moveIntent(){
         startActivity(Intent(this, MainActivity::class.java))
         finish()
@@ -88,7 +84,7 @@ class LoginUserActivity : AppCompatActivity() {
 
     private fun saveSession (nik: String, password:String){
         sharedpref.put(Constant.PREF_NIK,nik)
-        sharedpref.put(Constant.PREF_PASSWORD,password)
+//        sharedpref.put(Constant.PREF_PASSWORD,password)
         sharedpref.put(Constant.PREF_IS_LOGIN,true)
     }
 }
