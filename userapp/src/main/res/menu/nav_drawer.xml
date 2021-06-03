@@ -5,12 +5,12 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_home_user"
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
 
         <item
-            android:id="@+id/nav_qrcode"
+            android:id="@+id/qrCodeUserActivity"
             android:icon="@drawable/qr_code_icon"
             android:title="@string/my_barcode" />
 
@@ -19,16 +19,16 @@
             android:icon="@drawable/health_record_diary_icon"
             android:title="@string/health_record" />
         <item
-            android:id="@+id/nav_report_loss"
+            android:id="@+id/nav_lose_band"
             android:icon="@drawable/lost_report_icon"
             android:title="@string/lost_report" />
 
         <item
-            android:id="@+id/nav_lose_band"
+            android:id="@+id/nav_profile"
             android:icon="@drawable/ic_baseline_person_outline_24"
             android:title="@string/profil" />
         <item
-            android:id="@+id/nav_logout"
+            android:id="@+id/nav_logout_user"
             android:icon="@drawable/ic_baseline_logout_24"
             android:title="@string/logout" />
         <item

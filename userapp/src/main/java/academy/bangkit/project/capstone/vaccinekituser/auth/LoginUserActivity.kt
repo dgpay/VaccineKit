@@ -44,7 +44,7 @@ class LoginUserActivity : AppCompatActivity() {
         var pass = binding.pass.editableText
         var status = false
         val fstore = FirebaseFirestore.getInstance()
-        fstore.collection("Users").get().addOnCompleteListener{
+        fstore.collection("coba").get().addOnCompleteListener{
             if (it.isSuccessful){
                 for (document in it.result!!){
                     if(document.data.getValue("nik")==email.toString() && document.data.getValue("pass") == pass.toString()){

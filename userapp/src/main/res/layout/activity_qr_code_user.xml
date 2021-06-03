@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=""
-    android:id="@+id/myqrcode">
+    tools:context=".qrcode.QrCodeUserActivity">
+
 
     <ImageView
         android:id="@+id/img_qrcode"
-        android:layout_width="326dp"
-        android:layout_height="314dp"
-        android:layout_marginTop="144dp"
-        android:src="@drawable/ic_launcher_background"
+        android:layout_width="248dp"
+        android:layout_height="248dp"
+        android:layout_marginTop="208dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <Button
         android:id="@+id/button_generate"
@@ -25,7 +25,8 @@
         android:text="Generate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_qrcode" />
-
+        app:layout_constraintTop_toBottomOf="@+id/img_qrcode"
+        app:layout_constraintVertical_bias="0.242" />
 </androidx.constraintlayout.widget.ConstraintLayout>
