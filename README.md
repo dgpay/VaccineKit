@@ -18,3 +18,7 @@
 
 ### Download APK
 * [Download](https://drive.google.com/drive/folders/1bfGIWFpcsKC_y2QvJlkXJYKZh5C6Ac_a?usp=sharing)
+
+<!-- GETTING STARTED -->
+### USAGE EXAMPLE
+1. 
