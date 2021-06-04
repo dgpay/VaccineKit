@@ -1,12 +1,17 @@
 package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
+import academy.bangkit.project.capstone.vaccinekit.CommonUntils
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentRegisUserBinding
+import android.app.Dialog
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import com.google.firebase.firestore.ktx.firestore
@@ -79,6 +84,12 @@ class RegisUserFragment : Fragment() {
         val intent = Intent(getActivity(), UploadActivity::class.java)
         intent.putExtra(UploadActivity.EXTRA_DATA, string)
         getActivity()?.startActivity(intent)
+    }
+
+    fun copyText(text:String){
+        val myClipboard = context?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val myClip: ClipData = ClipData.newPlainText("Label", text)
+        myClipboard.setPrimaryClip(myClip)
     }
 
     override fun onDestroyView() {

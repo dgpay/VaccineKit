@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".home.HomeFragment">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -142,15 +141,15 @@
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
-                                android:src="@drawable/qr_code_icon"
+                                android:src="@drawable/ic_home"
                                 android:layout_alignParentTop="true"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/my_barcode"
+                                android:text="@string/menu_home"
                                 android:textColor="@color/black"
-                                android:textSize="18dp"
+                                android:textSize="18sp"
                                 android:textStyle="bold"
                                 android:layout_marginTop="10dp"/>
                         </LinearLayout>
@@ -178,13 +177,13 @@
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
-                                android:src="@drawable/health_record_diary_icon"
+                                android:src="@drawable/lost_report_icon"
                                 android:layout_alignParentTop="true"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/health_record"
+                                android:text="@string/lost_report"
                                 android:textColor="@color/black"
                                 android:textSize="18dp"
                                 android:textStyle="bold"
@@ -225,13 +224,13 @@
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
-                                android:src="@drawable/lost_report_icon"
+                                android:src="@drawable/ic_baseline_person_24"
                                 android:layout_alignParentTop="true"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Report Lost"
+                                android:text="@string/profil"
                                 android:textColor="@color/black"
                                 android:textSize="18dp"
                                 android:textStyle="bold"
@@ -239,41 +238,6 @@
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="160dp"
-                        android:layout_height="160dp"
-                        android:clickable="true"
-                        android:layout_margin="20dp"
-                        app:cardElevation="3dp"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        app:cardCornerRadius="3dp"
-                        android:focusable="true"
-                        app:cardBackgroundColor="@color/white">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="15dp"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:layout_marginTop="15dp">
-
-                            <ImageView
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:src="@drawable/qr_code_icon"
-                                android:layout_alignParentTop="true"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Your Barcode"
-                                android:textColor="@color/black"
-                                android:textSize="18dp"
-                                android:textStyle="bold"
-                                android:layout_marginTop="10dp"/>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 

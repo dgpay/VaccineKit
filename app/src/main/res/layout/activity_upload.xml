@@ -1,43 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8c9eff"
+    android:background="@color/white_base"
     tools:context=".regisforuser.UploadActivity">
 
-    <ImageView
-        android:id="@+id/imgView"
-        android:layout_width="0dp"
-        android:layout_height="465dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text"
-        app:layout_constraintVertical_bias="0.06"
-        android:background="#ede7f6"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
-    <ImageView
-        android:id="@+id/btn_open"
-        android:layout_width="89dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="68dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgView"
-        app:srcCompat="@drawable/opencam1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="465dp"
+            android:background="@color/white"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
-    <ImageView
-        android:id="@+id/btn_upload"
-        android:layout_width="85dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="52dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgView"
-        app:srcCompat="@drawable/select" />
+            <ImageView
+                android:layout_marginTop="55dp"
+                android:id="@+id/imgView"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:background="@drawable/ic_baseline_image_24" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="500dp"
+            android:layout_marginLeft="280dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/round_button_background"/>
+
+        <Button
+            android:id="@+id/btn_open"
+            android:layout_marginTop="507dp"
+            android:layout_marginLeft="285dp"
+            android:layout_width="63dp"
+            android:layout_height="63dp"
+            android:background="@drawable/ic_baseline_photo_camera_24"
+            app:backgroundTint="@color/black"/>
+
+
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload"
+            android:textStyle="bold"
+            android:layout_marginTop="620dp"
+            app:backgroundTint="@color/purple_500" />
 
     <TextView
         android:id="@+id/text"
@@ -45,9 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/selectionphoto"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textStyle="bold"
+        android:textSize="30sp" />
+    </RelativeLayout>
+</ScrollView>

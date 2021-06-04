@@ -36,7 +36,6 @@ class  FaceActivity : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 71
     private val PICK_CAMERA = 101
     private var filePath: Uri? = null
-    private var file_name: String ?= null
 
     private val viewModel: FaceViewModel by viewModel()
 
@@ -51,7 +50,7 @@ class  FaceActivity : AppCompatActivity() {
         val NIK = sharedpref.getString(Constant.PREF_NIK)
         binding.btnUpload.setOnClickListener {
             upload(image_path.toString())
-            checkBarcode(NIK.toString(), file_name.toString())
+            checkBarcode(NIK.toString(), image_path.toString())
         }
         binding.btnOpen.setOnClickListener {
             cameraIntent()
@@ -67,7 +66,7 @@ class  FaceActivity : AppCompatActivity() {
                 viewModel.getVerifByNIKphoto(nik,path).collectLatest {
                     if (it.verification == "ok") {
                         moveToBarcode(it.barcode)
-                    } else if(it.verification == "false") {
+                    } else {
                         Toast.makeText(this@FaceActivity, "Not Match", Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -93,7 +92,7 @@ class  FaceActivity : AppCompatActivity() {
         storageRef?.putFile(file)
             ?.addOnSuccessListener {
                 Toast.makeText(this, "File berhasil di upload", Toast.LENGTH_SHORT).show()
-//                finish()
+                finish()
             }?.addOnFailureListener {
                 Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
             }
@@ -103,7 +102,6 @@ class  FaceActivity : AppCompatActivity() {
         val image = data?.extras?.get("data")
         val random = Random.nextInt(0, 999999)
         val name_file = "Camera$random"
-        file_name = "${name_file}.png"
         image_path = persistImage(image as Bitmap, name_file)
         binding.imgView.setImageBitmap(BitmapFactory.decodeFile(image_path))
     }
@@ -140,7 +138,6 @@ class  FaceActivity : AppCompatActivity() {
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
             val random = Random.nextInt(0, 999999)
             val name_file = "Camera$random"
-            file_name = "${name_file}.png"
             image_path = persistImage(bitmap, name_file)
             binding.imgView.setImageBitmap(BitmapFactory.decodeFile(image_path))
         } catch (e: IOException) {
