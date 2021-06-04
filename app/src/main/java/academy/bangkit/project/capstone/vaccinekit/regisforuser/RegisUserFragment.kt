@@ -1,11 +1,13 @@
 package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
+import academy.bangkit.project.capstone.vaccinekit.CommonUntils
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentRegisUserBinding
+import android.app.Dialog
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.util.Log

@@ -1,10 +1,12 @@
 package academy.bangkit.project.capstone.vaccinekituser.scanner
 
+import academy.bangkit.project.capstone.vaccinekituser.CommonUtilsUser
 import academy.bangkit.project.capstone.vaccinekituser.Helper.Constant
 import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityFaceBinding
 import academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode.QrCodeUserActivity
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -36,7 +38,7 @@ class  FaceActivity : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 71
     private val PICK_CAMERA = 101
     private var filePath: Uri? = null
-
+    private var loadingDialog: Dialog? = null
     private val viewModel: FaceViewModel by viewModel()
 
     lateinit var sharedpref: PreferenceHelper
@@ -155,5 +157,16 @@ class  FaceActivity : AppCompatActivity() {
                 resultGallery(data)
             }
         }
+    }
+
+    private fun hideLoading(){
+        loadingDialog?.let{
+            if(it.isShowing)it.cancel()
+        }
+    }
+
+    private fun showLoading(){
+        hideLoading()
+        loadingDialog = CommonUtilsUser.showLoadingDialog(this)
     }
 }

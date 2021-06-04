@@ -20,7 +20,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VaccineKit"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SplashScreenUserActivity"></activity>
+        <activity android:name=".SplashScreenUserActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".profile.ProfilActivity" />
         <activity android:name=".scanner.qrcode.QrCodeUserActivity" />
         <activity
@@ -29,13 +35,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".auth.LoginUserActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".auth.LoginUserActivity"/>
     </application>
 
 </manifest>
