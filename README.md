@@ -1,6 +1,13 @@
 # B21-CAP0255 - VaccineKit
 
 
+VaccineKit is an application that will help certain institutions or professionals recognize every citizen who has had vaccines by scanning the barcode on the bracelet which will be given later. Currently, the vaccination data is only stored in the vaccination certificate’s barcode. Our team wanted to make it even more interesting by using a bracelet because it was easy to carry. In addition, in the future, this bracelet is also expected to be detected for other purposes. 
+    
+Our planned execution of this project is to create a chat bot, face recognition for verification when someone loses the band, a mobile app that can be accessed by users to get information about health especially covid and scan barcodes from the band and save the dataset in the cloud, monitoring, and logging. 
+
+After working for approximately one month our team can make the face recognition, two apps for user and heath institution include scan barcode and access vaccination data.
+
+
 ### Built With
 
 * [Android Studio Native](https://developer.android.com/studio)
