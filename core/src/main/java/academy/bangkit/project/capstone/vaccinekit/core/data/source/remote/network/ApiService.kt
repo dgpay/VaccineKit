@@ -23,14 +23,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("add_data_vaccine")
     suspend fun postVaccine(
-        @Field("nik") nik: String,
-        @Field("name") name: String,
-        @Field("address") address: String,
-        @Field("photo") photo: String,
-        @Field("ttl") ttl: String,
-        @Field("firstVaccineData") firstVaccineData: String,
-        @Field("secondVaccineDate") secondVaccineDate: String,
-        @Field("vaccineStatus") vaccineStatus: String
+        @FieldMap params: HashMap<String, String>
     ): AddVaccineResponse
 
     @GET("photo_verification")

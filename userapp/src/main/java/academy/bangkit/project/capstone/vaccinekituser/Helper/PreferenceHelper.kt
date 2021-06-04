@@ -16,7 +16,7 @@ class PreferenceHelper (context: Context){
     }
 
     fun getString(key: String) : String?{
-        return sharedpref.getString(key,null)
+        return sharedpref.getString(key,"")
     }
 
     fun put(key: String, value: Boolean){

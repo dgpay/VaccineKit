@@ -14,10 +14,6 @@ import com.budiyev.android.codescanner.ScanMode
 
 class ScannerBarcodeActivity : AppCompatActivity() {
 
-    companion object {
-        private const val CAMERA_REQUEST_CODE = 101
-    }
-
     private lateinit var binding: ActivityScannerBarcodeBinding
 
     private lateinit var codeScanner: CodeScanner

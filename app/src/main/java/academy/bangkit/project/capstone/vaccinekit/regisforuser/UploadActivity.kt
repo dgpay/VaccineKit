@@ -1,9 +1,7 @@
 package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
-import academy.bangkit.project.capstone.vaccinekit.CommonUntils
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityUploadBinding
 import android.app.Activity
-import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -25,7 +23,7 @@ class UploadActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_DATA = "extra_data"
     }
-    private var loadingDialog: Dialog? = null
+
     private lateinit var binding: ActivityUploadBinding
 
     private var image_path: String? = null
@@ -100,17 +98,6 @@ class UploadActivity : AppCompatActivity() {
                 resultCamera(data)
             }
         }
-    }
-
-    private fun hideLoading(){
-        loadingDialog?.let{
-            if(it.isShowing)it.cancel()
-        }
-    }
-
-    private fun showLoading(){
-        hideLoading()
-        loadingDialog = CommonUntils.showLoadingDialog(this)
     }
 
 }
