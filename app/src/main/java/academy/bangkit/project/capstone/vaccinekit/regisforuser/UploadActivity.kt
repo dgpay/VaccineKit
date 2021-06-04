@@ -60,7 +60,7 @@ class UploadActivity : AppCompatActivity() {
         storageRef?.putFile(file)
             ?.addOnSuccessListener {
                 index++
-                if (index==2){
+                if (index==15){
                     Toast.makeText(this, "Register done", Toast.LENGTH_SHORT).show()
                     toMainActivity()
                     finish()
