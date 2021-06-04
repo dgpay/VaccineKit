@@ -49,7 +49,7 @@ class RegisUserFragment : Fragment() {
             "ttl" to ttl,
             "address" to address,
             "photo" to nik,
-            "barcode" to "${nik}${getRandomString(3)}",
+            "barcode" to "${nik}${getRandomString(5)}",
             "password" to "123456",
             "firstVaccineDate" to first,
             "secondVaccineDate" to second,
