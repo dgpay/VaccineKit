@@ -31,7 +31,7 @@
     Registration for User
     1. Input personal data user
     2. Take 15 photo
-    Scan Barcode User
+    Verify is User
     1. Scan Barcode from app user
     2. Show personal data user
 
@@ -41,6 +41,6 @@
 ##### Features
     Profile User
     1. Show personal data user
-    Lose Band
+    Lose Band -> Request New Band
     1. Take 1 photo to predict
     2. If yes will show the new barcode, if no show alert
