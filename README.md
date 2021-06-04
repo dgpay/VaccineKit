@@ -16,9 +16,31 @@
 * [JourneyApps](https://github.com/journeyapps/zxing-android-embedded)
 
 
+### Screenshot Apps
+
+
 ### Download APK
 * [Download](https://drive.google.com/drive/folders/1bfGIWFpcsKC_y2QvJlkXJYKZh5C6Ac_a?usp=sharing)
 
 <!-- GETTING STARTED -->
-### USAGE EXAMPLE
-1. 
+### USAGE
+#### Institution Apps
+1. Institution user have to registered in firebase auth
+2. Login to your institution account
+##### Features
+    Registration for User
+    1. Input personal data user
+    2. Take 15 photo
+    Scan Barcode User
+    1. Scan Barcode from app user
+    2. Show personal data user
+
+#### User Apps
+1. User have to registered by Institution User
+2. Login to your user account
+##### Features
+    Profile User
+    1. Show personal data user
+    Lose Band
+    1. Take 1 photo to predict
+    2. If yes will show the new barcode, if no show alert
