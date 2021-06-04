@@ -38,5 +38,7 @@
     <string name="secondVaccine">Second Vaccine</string>
     <string name="vaccineinfo">Vaccine Info</string>
     <string name="havevaccine">Vaccine at:</string>
+    <string name="insert_user_vaccine_profile">Insert User Vaccine Profile</string>
+    <string name="fill_user_data_here">Fill user data here</string>
 
 </resources>

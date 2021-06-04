@@ -1,7 +1,9 @@
 package academy.bangkit.project.capstone.vaccinekit.checkvaccine.detail
 
+import academy.bangkit.project.capstone.vaccinekit.CommonUntils
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityDetailVaccineBinding
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
@@ -17,6 +19,8 @@ class DetailVaccineActivity : AppCompatActivity() {
         const val EXTRA_DATA = "extra_data"
     }
 
+    private var loadingDialog: Dialog? = null
+
     private lateinit var binding: ActivityDetailVaccineBinding
     private val viewModel: DetailVaccineViewModel by viewModel()
 
@@ -26,6 +30,7 @@ class DetailVaccineActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val barcode = intent.getStringExtra(EXTRA_DATA)
+
 
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
@@ -44,5 +49,17 @@ class DetailVaccineActivity : AppCompatActivity() {
         binding.tvFirstVaccine.text = vaccine.firstVaccineDate
         binding.tvSecondVaccine.text = vaccine.secondVaccineDate
     }
+
+    private fun hideLoading(){
+        loadingDialog?.let{
+            if(it.isShowing)it.cancel()
+        }
+    }
+
+    private fun showLoading(){
+        hideLoading()
+        loadingDialog = CommonUntils.showLoadingDialog(this)
+    }
+
 }
 

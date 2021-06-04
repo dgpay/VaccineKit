@@ -52,5 +52,6 @@ dependencies {
 
     //UI
     implementation 'com.airbnb.android:lottie:3.4.1'
+    implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
 
 }
