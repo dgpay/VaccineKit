@@ -3,6 +3,7 @@ package academy.bangkit.project.capstone.vaccinekit.core.data.source.remote
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.network.ApiService
 import academy.bangkit.project.capstone.vaccinekit.core.data.source.remote.response.*
 import android.util.Log
+import com.squareup.okhttp.RequestBody
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -67,18 +68,11 @@ class RemoteDataSource (private val apiService: ApiService) {
     }
 
     fun postVaccineData(
-        nik: String,
-        name: String,
-        address: String,
-        photos: String,
-        ttl: String,
-        firstVaccineData: String,
-        secondVaccineDate: String,
-        vaccineStatus: String
+        params: HashMap<String, String>
     ): Flow<AddVaccineResponse> {
         return flow {
             try {
-                val response = apiService.postVaccine(nik,name, address, photos, ttl, firstVaccineData, secondVaccineDate, vaccineStatus)
+                val response = apiService.postVaccine(params)
                 emit(response)
             } catch (e: Exception) {
                 Log.e("RemoteDataSource", e.toString())

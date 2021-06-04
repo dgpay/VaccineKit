@@ -5,6 +5,7 @@ import academy.bangkit.project.capstone.vaccinekit.core.domain.model.LoginUser
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.NIKBarcode
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Verification
+import com.squareup.okhttp.RequestBody
 import kotlinx.coroutines.flow.Flow
 
 interface IVaccineRepository {
@@ -13,14 +14,6 @@ interface IVaccineRepository {
     fun getDataByBarcode(barcode: String): Flow<Vaccine>
     fun getVerification(nik: String): Flow<Verification>
     fun getNIKBarcode(nik: String, photos: String): Flow<NIKBarcode>
-    fun addVaccineData(
-        nik: String,
-        name: String,
-        address: String,
-        photos: String,
-        ttl: String,
-        firstVaccineData: String,
-        secondVaccineDate: String,
-        vaccineStatus: String
+    fun addVaccineData(params: HashMap<String, String>
     ): Flow<AddVaccineResponse>
 }

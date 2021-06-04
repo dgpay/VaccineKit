@@ -7,6 +7,7 @@ import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Vaccine
 import academy.bangkit.project.capstone.vaccinekit.core.domain.model.Verification
 import academy.bangkit.project.capstone.vaccinekit.core.domain.repository.IVaccineRepository
 import academy.bangkit.project.capstone.vaccinekit.core.utils.DataMapper
+import com.squareup.okhttp.RequestBody
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -41,25 +42,6 @@ class VaccineRepository(private val remoteDataSource: RemoteDataSource) : IVacci
         }
     }
 
-    override fun addVaccineData(
-        nik: String,
-        name: String,
-        address: String,
-        photos: String,
-        ttl: String,
-        firstVaccineData: String,
-        secondVaccineDate: String,
-        vaccineStatus: String
-    ) = remoteDataSource.postVaccineData(
-        nik,
-        name,
-        address,
-        photos,
-        ttl,
-        firstVaccineData,
-        secondVaccineDate,
-        vaccineStatus
-    )
-
+    override fun addVaccineData(params: HashMap<String, String>) = remoteDataSource.postVaccineData(params)
 
 }
