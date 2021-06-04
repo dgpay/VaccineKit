@@ -33,10 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_home_user,
-            R.id.nav_insert,
             R.id.nav_prof,
-            R.id.nav_detail,
-            R.id.qrCodeUserActivity,
             R.id.nav_lose_band
         ), binding.drawerLayout)
 

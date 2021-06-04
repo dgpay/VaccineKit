@@ -24,8 +24,8 @@ class ProfilActivity : AppCompatActivity() {
         binding = ActivityProfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sharedpref = PreferenceHelper(this@ProfilActivity)
-        val NIK = sharedpref.getString(Constant.PREF_NIK)
+        sharedpref = PreferenceHelper(this)
+        val NIK = sharedpref.getString(Constant.PREF_NIK).toString()
 
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {

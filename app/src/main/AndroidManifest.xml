@@ -22,19 +22,18 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".checkvaccine.ScannerBarcodeActivity"></activity>
         <activity android:name=".regisforuser.UploadActivity" />
-        <activity android:name=".SplashScreenActivity" />
-        <activity android:name=".auth.LoginActivity">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".auth.LoginActivity"/>
         <activity android:name="academy.bangkit.project.capstone.vaccinekit.checkvaccine.detail.DetailVaccineActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="academy.bangkit.project.capstone.vaccinekit.provider"

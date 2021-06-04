@@ -49,7 +49,7 @@ class LoginUserActivity : AppCompatActivity() {
             withContext(Dispatchers.Main) {
                 viewModel.LoginUser(nik, pass).collectLatest {
                     saveSession(nik,pass)
-                    moveIntent()
+                    onStart()
                 }
             }
         }
