@@ -6,8 +6,14 @@
 * [Android Studio Native](https://developer.android.com/studio)
 * [Firebase Firestore](https://firebase.google.com/docs/firestore)
 * [Firebase Storage](https://firebase.google.com/docs/storage)
-* [Google Cloud Platform Services](https://cloud.google.com/gcp)
+* [Firebase Auth](https://firebase.google.com/docs/auth)
 * [Kotlin Programming Language](https://kotlinlang.org/)
 * [Retrofit](https://square.github.io/retrofit/)
 * [Koin](https://insert-koin.io/)
-* [Coroutine Flow](https://developer.android.com/kotlin/coroutines?hl=id&gclid=Cj0KCQjwnueFBhChARIsAPu3YkSZ9B8Tw6rXlra1e2paYSDkPm3hW1rYa4oWliHGYcE5S-X23ZMlL-YaAoRXEALw_wcB&gclsrc=aw.ds)
+* [Coroutine Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
+* [Budiyev Scanner](https://github.com/yuriy-budiyev/code-scanner)
+* [JourneyApps](https://github.com/journeyapps/zxing-android-embedded)
+
+
+### Download APK
+* [Download](https://drive.google.com/drive/folders/1bfGIWFpcsKC_y2QvJlkXJYKZh5C6Ac_a?usp=sharing)
