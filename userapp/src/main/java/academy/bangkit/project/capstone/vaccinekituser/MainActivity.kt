@@ -3,7 +3,6 @@ package academy.bangkit.project.capstone.vaccinekituser
 import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.auth.LoginUserActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityMainBinding
-
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity

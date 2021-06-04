@@ -1,5 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
+import academy.bangkit.project.capstone.vaccinekit.MainActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityUploadBinding
 import android.app.Activity
 import android.content.Intent
@@ -27,7 +28,7 @@ class UploadActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUploadBinding
 
     private var image_path: String? = null
-
+    private var index = 0
     private var mStorageRef: StorageReference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,10 +59,22 @@ class UploadActivity : AppCompatActivity() {
 
         storageRef?.putFile(file)
             ?.addOnSuccessListener {
-                Toast.makeText(this, "File berhasil di upload", Toast.LENGTH_SHORT).show()
+                index++
+                if (index==2){
+                    Toast.makeText(this, "Register done", Toast.LENGTH_SHORT).show()
+                    toMainActivity()
+                    finish()
+                } else {
+                    Toast.makeText(this, "File ${index} uploaded", Toast.LENGTH_SHORT).show()
+                }
             }?.addOnFailureListener {
                 Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun toMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     private fun resultCamera(data: Intent?) {
@@ -85,8 +98,12 @@ class UploadActivity : AppCompatActivity() {
         } catch (e: Exception){
             Log.e("TAG", "persistImage: ${e.message.toString()} ", e )
         }
-
         return image_path
+    }
+
+    override fun onBackPressed() {
+        Toast.makeText(this, "You have to finish registration", Toast.LENGTH_SHORT).show()
+        return
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

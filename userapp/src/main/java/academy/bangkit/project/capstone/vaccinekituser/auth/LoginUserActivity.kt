@@ -17,9 +17,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class LoginUserActivity : AppCompatActivity() {
 
-//    var mAuth = FirebaseAuth.getInstance()
     private lateinit var binding: ActivityLoginBinding
-//    val db = Firebase.firestore
 
     private val viewModel: LoginViewModel by viewModel()
     lateinit var sharedpref: PreferenceHelper
@@ -50,25 +48,6 @@ class LoginUserActivity : AppCompatActivity() {
         }
 
     }
-
-//    private fun loginF() {
-//        var nik = binding.user.editableText
-//        var pass = binding.pass.editableText
-//        var status = false
-//        val fstore = FirebaseFirestore.getInstance()
-//        fstore.collection("coba").get().addOnCompleteListener{
-//            if (it.isSuccessful){
-//                for (document in it.result!!){
-//                    if(document.data.getValue("nik")==nik.toString() && document.data.getValue("pass") == pass.toString()){
-//                        //contoh
-//                            saveSession(document.data.getValue("nik").toString(),document.data.getValue("pass").toString())
-//                        status =true
-//                        moveIntent()
-//                    }
-//                }
-//            }
-//        }
-//        }
 
 //    override fun onStart() {
 //        super.onStart()
