@@ -49,7 +49,7 @@ class RegisUserFragment : Fragment() {
             "ttl" to ttl,
             "address" to address,
             "photo" to nik,
-            "barcode" to "",
+            "barcode" to "${nik}${getRandomString(3)}",
             "password" to "123456",
             "firstVaccineDate" to first,
             "secondVaccineDate" to second,
@@ -65,6 +65,13 @@ class RegisUserFragment : Fragment() {
             .addOnFailureListener { e ->
                 Log.w(TAG, "Error adding document", e)
             }
+    }
+
+    fun getRandomString(length: Int) : String {
+        val allowedChars = ('A'..'Z') + ('a'..'z')
+        return (1..length)
+            .map { allowedChars.random() }
+            .joinToString("")
     }
 
     private fun moveToUpload(string: String) {
