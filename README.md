@@ -9,6 +9,7 @@
 * [Firebase Auth](https://firebase.google.com/docs/auth)
 * [Kotlin Programming Language](https://kotlinlang.org/)
 * [Retrofit](https://square.github.io/retrofit/)
+* [OkHttp](https://square.github.io/okhttp/)
 * [Koin](https://insert-koin.io/)
 * [Coroutine Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
 * [Budiyev Scanner](https://github.com/yuriy-budiyev/code-scanner)
