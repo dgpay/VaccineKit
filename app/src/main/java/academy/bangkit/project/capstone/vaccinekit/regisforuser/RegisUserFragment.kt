@@ -53,7 +53,8 @@ class RegisUserFragment : Fragment() {
             "password" to "123456",
             "firstVaccineDate" to first,
             "secondVaccineDate" to second,
-            "vaccineStatus" to status
+            "vaccineStatus" to status,
+            "date" to ""
         )
 
         db.collection("users")

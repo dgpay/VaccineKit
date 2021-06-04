@@ -43,7 +43,6 @@ class UploadActivity : AppCompatActivity() {
         binding.btnOpen.setOnClickListener {
             cameraIntent()
         }
-
     }
 
     private fun cameraIntent() {
