@@ -5,24 +5,20 @@
     android:id="@+id/main_nav"
     app:startDestination="@id/nav_home_user">
 
-    <fragment
-        android:id="@+id/nav_home"
-        android:name="academy.bangkit.project.capstone.vaccinekituser.home.HomeFragment"
-        android:label="HomeFragment" />
     <activity
         android:id="@+id/nav_lose_band"
         android:name="academy.bangkit.project.capstone.vaccinekituser.scanner.FaceActivity"
-        android:label="activity_face"
+        android:label="Scan"
         tools:layout="@layout/activity_face" />
 
     <fragment
         android:id="@+id/nav_home_user"
         android:name="academy.bangkit.project.capstone.vaccinekituser.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" />
     <activity
         android:id="@+id/nav_prof"
         android:name="academy.bangkit.project.capstone.vaccinekituser.profile.ProfilActivity"
-        android:label="activity_profil"
+        android:label="Profile"
         tools:layout="@layout/activity_profil" />
 </navigation>

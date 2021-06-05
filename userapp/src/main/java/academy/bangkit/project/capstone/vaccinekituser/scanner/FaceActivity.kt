@@ -66,7 +66,7 @@ class  FaceActivity : AppCompatActivity() {
                 viewModel.getVerifByNIKphoto(nik,path).collectLatest {
                     if (it.verification == "ok") {
                         moveToBarcode(it.barcode)
-                    } else {
+                    } else if(it.verification == "") {
                         Toast.makeText(this@FaceActivity, "Not Match", Toast.LENGTH_SHORT).show()
                     }
                 }

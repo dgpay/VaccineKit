@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="academy.bangkit.project.capstone.vaccinekit.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_insert"
         android:name="academy.bangkit.project.capstone.vaccinekit.regisforuser.RegisUserFragment"
-        android:label="fragment_insert"
+        android:label="Add User"
         tools:layout="@layout/fragment_regis_user" />
     <activity
         android:id="@+id/nav_lost"

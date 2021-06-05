@@ -6,15 +6,16 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -56,9 +57,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item?.itemId == R.id.signOut) {
-            mAuth.signOut()
-            Toast.makeText(this, "Signed Out :(", Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, LoginActivity::class.java))
+            showDialog()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -83,5 +82,20 @@ class MainActivity : AppCompatActivity() {
                 ), 1
             )
         }
+    }
+
+    private fun showDialog() {
+        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("Warning....!")
+            .setContentText("Are you sure to logout?")
+            .setConfirmText("Yes")
+            .setConfirmClickListener { sDialog ->
+                mAuth.signOut()
+                startActivity(Intent(this, LoginActivity::class.java)) }
+            .setCancelButton(
+                "No"
+            ) { sDialog ->
+                sDialog.dismissWithAnimation() }
+            .show()
     }
 }
