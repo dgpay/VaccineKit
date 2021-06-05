@@ -1,5 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekituser.scanner
 
+import academy.bangkit.project.capstone.vaccinekituser.CommonUtilsUser
 import academy.bangkit.project.capstone.vaccinekituser.Helper.Constant
 import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityFaceBinding
@@ -9,24 +10,26 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import cn.pedant.SweetAlert.SweetAlertDialog
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
 import kotlin.random.Random
-import org.koin.android.viewmodel.ext.android.viewModel
+
 
 class  FaceActivity : AppCompatActivity() {
 
@@ -36,6 +39,8 @@ class  FaceActivity : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 71
     private val PICK_CAMERA = 101
     private var filePath: Uri? = null
+    private var file_name: String? = null
+    var mAuth = FirebaseAuth.getInstance()
 
     private val viewModel: FaceViewModel by viewModel()
 
@@ -50,7 +55,7 @@ class  FaceActivity : AppCompatActivity() {
         val NIK = sharedpref.getString(Constant.PREF_NIK)
         binding.btnUpload.setOnClickListener {
             upload(image_path.toString())
-            checkBarcode(NIK.toString(), image_path.toString())
+            checkBarcode(NIK.toString(), file_name.toString())
         }
         binding.btnOpen.setOnClickListener {
             cameraIntent()
@@ -60,14 +65,31 @@ class  FaceActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        val user = mAuth.currentUser
+        if (user != null) {
+        } else {
+            signInAnonymously()
+        }
+    }
+
+    private fun signInAnonymously() {
+        mAuth.signInAnonymously()
+            .addOnSuccessListener(this) {}
+            .addOnFailureListener(
+                this
+            ) { exception -> Log.e("TAG", "signInAnonymously:FAILURE", exception) }
+    }
+
     private fun checkBarcode(nik: String, path: String) {
         lifecycleScope.launch(Dispatchers.Default) {
             withContext(Dispatchers.Main) {
                 viewModel.getVerifByNIKphoto(nik,path).collectLatest {
                     if (it.verification == "ok") {
                         moveToBarcode(it.barcode)
-                    } else if(it.verification == "") {
-                        Toast.makeText(this@FaceActivity, "Not Match", Toast.LENGTH_SHORT).show()
+                    } else if(it.verification == "false") {
+                        CommonUtilsUser.showSweetAlert("failed", this@FaceActivity, "Not Matched", "Please try again...!")
                     }
                 }
             }
@@ -91,10 +113,9 @@ class  FaceActivity : AppCompatActivity() {
         val storageRef = mStorageRef?.child("photo_request_verif/${meta.name}")
         storageRef?.putFile(file)
             ?.addOnSuccessListener {
-                Toast.makeText(this, "File berhasil di upload", Toast.LENGTH_SHORT).show()
-                finish()
+                CommonUtilsUser.showSweetAlert("success", this, "Good!", "Photo already uploaded")
             }?.addOnFailureListener {
-                Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                CommonUtilsUser.showSweetAlert("failed", this, "Failed", it.message.toString())
             }
     }
 
@@ -102,6 +123,7 @@ class  FaceActivity : AppCompatActivity() {
         val image = data?.extras?.get("data")
         val random = Random.nextInt(0, 999999)
         val name_file = "Camera$random"
+        file_name = "${name_file}.png"
         image_path = persistImage(image as Bitmap, name_file)
         binding.imgView.setImageBitmap(BitmapFactory.decodeFile(image_path))
     }
@@ -138,6 +160,7 @@ class  FaceActivity : AppCompatActivity() {
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
             val random = Random.nextInt(0, 999999)
             val name_file = "Camera$random"
+            file_name = "${name_file}.png"
             image_path = persistImage(bitmap, name_file)
             binding.imgView.setImageBitmap(BitmapFactory.decodeFile(image_path))
         } catch (e: IOException) {

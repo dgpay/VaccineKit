@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private var mAuth = FirebaseAuth.getInstance()
     var user = FirebaseAuth.getInstance().currentUser
-    private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,16 +61,6 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
-            return
-        }
-        this.doubleBackToExitPressedOnce = true
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
-        Handler(mainLooper).postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
-    }
-
     private fun initPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(
@@ -82,6 +71,10 @@ class MainActivity : AppCompatActivity() {
                 ), 1
             )
         }
+    }
+
+    override fun onBackPressed() {
+        showDialog()
     }
 
     private fun showDialog() {

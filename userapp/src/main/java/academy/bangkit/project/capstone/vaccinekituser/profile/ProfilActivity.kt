@@ -9,6 +9,7 @@ import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
@@ -34,14 +35,14 @@ class ProfilActivity : AppCompatActivity() {
             withContext(Dispatchers.Main) {
                 viewModel.getVaccineData(NIK!!).collectLatest {
                     showLoading()
-                    Handler().postDelayed({
+                    Handler(Looper.getMainLooper()).postDelayed({
                         hideLoading()
                         showData(it)
                     },5000)
-
                 }
             }
         }
+        titleBar("User Profile")
     }
 
     private fun showData(vaccine: Vaccine) {
@@ -64,4 +65,15 @@ class ProfilActivity : AppCompatActivity() {
         loadingDialog = CommonUtilsUser.showLoadingDialog(this)
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+    private fun titleBar(string: String) {
+        val actionBar = supportActionBar
+        actionBar?.title = string
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+    }
 }

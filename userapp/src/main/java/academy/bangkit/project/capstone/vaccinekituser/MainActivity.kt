@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var sharedpref: PreferenceHelper
-    private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,14 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed()
-            return
-        }
-        this.doubleBackToExitPressedOnce = true
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
-
-        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+        showDialog()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -69,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item?.itemId == R.id.signOut) {
-            showDialog()     
+            showDialog()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -91,14 +83,13 @@ class MainActivity : AppCompatActivity() {
             .setTitleText("Warning....!")
             .setContentText("Are you sure to logout?")
             .setConfirmText("Yes")
-            .setConfirmClickListener { sDialog ->
+            .setConfirmClickListener {
                 sharedpref.clear()
                 startActivity(Intent(this, LoginUserActivity::class.java))
             }
             .setCancelButton(
                 "No"
-            ) { sDialog ->
-                sDialog.dismissWithAnimation() }
+            ) { it.dismissWithAnimation() }
             .show()
     }
 }
