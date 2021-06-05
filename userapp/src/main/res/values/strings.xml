@@ -35,6 +35,7 @@
     <string name="secondVaccine">Second Vaccine</string>
     <string name="vaccineinfo">Vaccine Information</string>
     <string name="havevaccine">Vaccine at:</string>
+    <string name="birth_date">Birth Date</string>
 
 
 </resources>
