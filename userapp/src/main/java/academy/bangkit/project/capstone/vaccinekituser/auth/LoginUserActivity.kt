@@ -49,12 +49,12 @@ class LoginUserActivity : AppCompatActivity() {
 
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        if(sharedpref.getBoolean(Constant.PREF_IS_LOGIN)){
-//            moveIntent()
-//        }
-//    }
+    override fun onStart() {
+        super.onStart()
+        if(sharedpref.getBoolean(Constant.PREF_IS_LOGIN)){
+            moveIntent()
+        }
+    }
 
     private fun moveIntent(){
         startActivity(Intent(this, MainActivity::class.java))
