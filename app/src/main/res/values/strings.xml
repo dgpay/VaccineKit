@@ -25,7 +25,7 @@
 
     <string name="nik">NIK</string>
     <string name="name">Name</string>
-    <string name="ttl">TTL</string>
+    <string name="ttl">Birth Date</string>
     <string name="address">Address</string>
     <string name="date">Date</string>
     <string name="submit">Submit</string>
