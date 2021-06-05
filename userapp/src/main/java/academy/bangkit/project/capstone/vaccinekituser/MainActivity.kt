@@ -16,6 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import cn.pedant.SweetAlert.SweetAlertDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -68,8 +69,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item?.itemId == R.id.signOut) {
-            sharedpref.clear()
-            startActivity(Intent(this, LoginUserActivity::class.java))
+            showDialog()     
         }
         return super.onOptionsItemSelected(item)
     }
@@ -84,5 +84,21 @@ class MainActivity : AppCompatActivity() {
                 ), 1
             )
         }
+    }
+
+    private fun showDialog() {
+        SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+            .setTitleText("Warning....!")
+            .setContentText("Are you sure to logout?")
+            .setConfirmText("Yes")
+            .setConfirmClickListener { sDialog ->
+                sharedpref.clear()
+                startActivity(Intent(this, LoginUserActivity::class.java))
+            }
+            .setCancelButton(
+                "No"
+            ) { sDialog ->
+                sDialog.dismissWithAnimation() }
+            .show()
     }
 }
