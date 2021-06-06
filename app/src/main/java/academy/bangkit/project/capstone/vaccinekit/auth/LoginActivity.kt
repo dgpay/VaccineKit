@@ -23,9 +23,6 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtn.setOnClickListener {
             login()
         }
-        binding.regTxtButton.setOnClickListener{
-
-        }
     }
 
     private fun login() {

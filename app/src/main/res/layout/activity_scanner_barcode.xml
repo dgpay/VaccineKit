@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white_base"
     tools:context=".checkvaccine.ScannerBarcodeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <com.budiyev.android.codescanner.CodeScannerView
         android:layout_width="match_parent"
@@ -27,4 +37,7 @@
         android:layout_marginTop="610dp"
         android:layout_marginLeft="50dp"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

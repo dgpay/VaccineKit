@@ -36,6 +36,7 @@
     <string name="vaccineinfo">Vaccine Information</string>
     <string name="havevaccine">Vaccine at:</string>
     <string name="birth_date">Birth Date</string>
+    <string name="Email">Email</string>
 
 
 </resources>
