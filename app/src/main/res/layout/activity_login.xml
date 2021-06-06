@@ -52,11 +52,11 @@
                         android:id="@+id/user"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/username"
+                        android:hint="@string/nik"
                         android:inputType="textCapSentences"
                         android:maxLines="1"
                         android:background="@drawable/rounded_text"
-                        android:autofillHints="@string/username"/>
+                        android:autofillHints="@string/nik"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -85,19 +85,6 @@
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:text="@string/loginbutton"/>
-
-
-                <Button
-                    android:id="@+id/regTxtButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/WordsRegister"
-                    android:textColor="#A1A1A1"
-                    android:textSize="16sp"
-                    android:textAllCaps="false"
-                    style="?android:attr/borderlessButtonStyle"/>
-
-
 
             </LinearLayout>
         </FrameLayout>
