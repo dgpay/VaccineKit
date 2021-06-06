@@ -62,11 +62,11 @@
                 android:id="@+id/user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/username"
+                android:hint="@string/email"
                 android:inputType="textCapSentences"
                 android:maxLines="1"
                 android:background="@drawable/rounded_text"
-                android:autofillHints="@string/username"/>
+                android:autofillHints="@string/email"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -102,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/WordsRegister"
-            android:textColor="#A1A1A1"
+            android:textColor="#00A1A1A1"
             android:textSize="16sp"
             android:textAllCaps="false"
             style="?android:attr/borderlessButtonStyle"/>

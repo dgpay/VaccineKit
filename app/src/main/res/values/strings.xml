@@ -41,5 +41,6 @@
     <string name="insert_user_vaccine_profile">Insert User Vaccine Profile</string>
     <string name="fill_user_data_here">Fill user data here</string>
     <string name="birth_date">Birth Date</string>
+    <string name="email">Email</string>
 
 </resources>

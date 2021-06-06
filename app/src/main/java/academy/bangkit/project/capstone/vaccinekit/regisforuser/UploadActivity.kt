@@ -1,5 +1,6 @@
 package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
+import academy.bangkit.project.capstone.vaccinekit.MainActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityUploadBinding
 import android.app.Activity
 import android.content.Intent
@@ -38,6 +39,7 @@ class UploadActivity : AppCompatActivity() {
 
         binding.btnUpload.setOnClickListener {
             upload(image_path.toString())
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         binding.btnOpen.setOnClickListener {

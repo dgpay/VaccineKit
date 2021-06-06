@@ -5,6 +5,10 @@
     tools:context=".regisforuser.RegisUserFragment"
     android:background="@color/white_base"
     android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,7 +47,8 @@
                 android:hint="@string/nik"
                 android:inputType="textCapSentences"
                 android:background="@drawable/rounded_text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:padding="15dp"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -56,6 +61,7 @@
                 android:hint="@string/name"
                 android:inputType="textCapSentences"
                 android:background="@drawable/rounded_text"
+                android:padding="15dp"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -69,7 +75,8 @@
                 android:hint="@string/ttl"
                 android:inputType="textCapSentences"
                 android:background="@drawable/rounded_text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:padding="15dp"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -82,7 +89,8 @@
                 android:hint="@string/address"
                 android:inputType="textCapSentences"
                 android:background="@drawable/rounded_text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:padding="15dp"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -95,6 +103,7 @@
                 android:hint="@string/firstvaccine"
                 android:inputType="textCapSentences"
                 android:background="@drawable/rounded_text"
+                android:padding="15dp"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -108,7 +117,8 @@
                 android:hint="@string/secondvaccine"
                 android:inputType="textCapSentences"
                 android:background="@drawable/rounded_text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:padding="15dp"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -121,7 +131,8 @@
                 android:hint="@string/statusvaccine"
                 android:inputType="textCapSentences"
                 android:background="@drawable/rounded_text"
-                android:maxLines="1" />
+                android:maxLines="1"
+                android:padding="15dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -129,7 +140,10 @@
             android:backgroundTint="#FF8181"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
             android:text="@string/submit" />
     </LinearLayout>
+
+    </RelativeLayout>
 
 </ScrollView>
