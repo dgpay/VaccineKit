@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/img_qrcode"
-        android:layout_width="257dp"
-        android:layout_height="270dp"
+        android:layout_width="360dp"
+        android:layout_height="277dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="208dp"
         android:layout_marginEnd="10dp"
@@ -20,5 +20,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:layout_width="381dp"
+        android:layout_height="84dp"
+        android:text="Congratulation Here your new Barcode.."
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
