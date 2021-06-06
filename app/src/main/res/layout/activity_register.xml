@@ -109,7 +109,8 @@
             android:textAllCaps="false"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:textColor="#A1A1A1"
+            android:textColor="#00A1A1A1"
+            android:background="@color/zxing_transparent"
             style="?android:attr/borderlessButtonStyle"/>
 
     </LinearLayout>
