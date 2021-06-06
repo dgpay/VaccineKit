@@ -20,7 +20,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VaccineKit"
         android:usesCleartextTraffic="true">
-        <activity android:name=".checkvaccine.ScannerBarcodeActivity"></activity>
+        <activity android:name=".auth.RegisterActivity"></activity>
+        <activity android:name=".checkvaccine.ScannerBarcodeActivity" />
         <activity android:name=".regisforuser.UploadActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
@@ -29,11 +30,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".auth.LoginActivity"/>
-        <activity android:name="academy.bangkit.project.capstone.vaccinekit.checkvaccine.detail.DetailVaccineActivity" />
+        <activity android:name=".auth.LoginActivity" />
+        <activity android:name=".checkvaccine.detail.DetailVaccineActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="academy.bangkit.project.capstone.vaccinekit.provider"
