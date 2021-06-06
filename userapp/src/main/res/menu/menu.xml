@@ -3,8 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:title="SignOut"
         android:id="@+id/signOut"
-        app:showAsAction="never"></item>
-    <item android:title="add"
-        android:id="@+id/add"
-        app:showAsAction="never"></item>
+        android:icon="@drawable/ic_baseline_exit"
+        app:showAsAction="ifRoom"></item>
 </menu>
