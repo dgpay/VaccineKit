@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white_base"
     tools:context=".checkvaccine.ScannerBarcodeActivity">
 
     <com.budiyev.android.codescanner.CodeScannerView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="600dp"
         android:id="@+id/scanner_view"
         app:autoFocusButtonColor="@color/white"
         app:autoFocusButtonVisible="true"
@@ -22,7 +23,8 @@
         android:id="@+id/tv_scan"
         android:text="Scan QR code Here.."
         android:textColor="@color/black"
-        android:layout_marginTop="450dp"
-        android:layout_marginLeft="150dp"/>
+        android:textSize="40sp"
+        android:layout_marginTop="610dp"
+        android:layout_marginLeft="50dp"/>
 
 </RelativeLayout>
