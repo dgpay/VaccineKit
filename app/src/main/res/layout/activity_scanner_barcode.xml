@@ -17,25 +17,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <com.budiyev.android.codescanner.CodeScannerView
-        android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:id="@+id/scanner_view"
-        app:autoFocusButtonColor="@color/white"
-        app:autoFocusButtonVisible="true"
-        app:flashButtonColor="@color/white"
-        app:flashButtonVisible="true"
-        app:maskColor="#6C000000"/>
+        <com.budiyev.android.codescanner.CodeScannerView
+            android:id="@+id/scanner_view"
+            android:layout_width="match_parent"
+            android:layout_height="750dp"
+            app:autoFocusButtonColor="@color/white"
+            app:autoFocusButtonVisible="true"
+            app:flashButtonColor="@color/white"
+            app:flashButtonVisible="true"
+            app:maskColor="#6C000000" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_scan"
-        android:text="Scan QR code Here.."
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        android:layout_marginTop="610dp"
-        android:layout_marginLeft="50dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="100dp">
+            <TextView
+                android:id="@+id/tv_scan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Barcode Scanner"
+                android:textStyle="bold"
+                android:textColor="@color/white_base"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+
 
     </RelativeLayout>
     </LinearLayout>

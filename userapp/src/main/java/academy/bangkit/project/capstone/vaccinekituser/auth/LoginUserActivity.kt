@@ -3,9 +3,12 @@ package academy.bangkit.project.capstone.vaccinekituser.auth
 import academy.bangkit.project.capstone.vaccinekituser.Helper.Constant
 import academy.bangkit.project.capstone.vaccinekituser.Helper.PreferenceHelper
 import academy.bangkit.project.capstone.vaccinekituser.MainActivity
+import academy.bangkit.project.capstone.vaccinekituser.R
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityLoginBinding
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
@@ -27,6 +30,18 @@ class LoginUserActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.showHideBtn.setOnClickListener {
+            if(binding.showHideBtn.background.equals(resources.getDrawable(R.drawable.show_pass,theme))){
+                binding.pass.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                binding.showHideBtn.background = resources.getDrawable(R.drawable.show_pass,theme)
+                binding.showHideBtn.text = "show"
+            } else{
+                binding.pass.transformationMethod = PasswordTransformationMethod.getInstance()
+                binding.showHideBtn.background = resources.getDrawable(R.drawable.ic_baseline_remove_red_eye_24,theme)
+                binding.showHideBtn.text = "hide"
+            }
+        }
 
         sharedpref = PreferenceHelper(this)
 

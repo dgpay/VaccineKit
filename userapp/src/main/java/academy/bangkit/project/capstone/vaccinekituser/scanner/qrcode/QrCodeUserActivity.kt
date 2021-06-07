@@ -24,6 +24,7 @@ class QrCodeUserActivity : AppCompatActivity() {
 
         val intent = intent.getStringExtra(EXTRA_DATA)
         generateQr(intent.toString())
+
     }
 
     private fun generateQr(string: String) {

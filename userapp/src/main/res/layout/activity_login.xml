@@ -56,7 +56,7 @@
                             android:id="@+id/textInputLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="60dp">
+                            android:layout_marginTop="80dp">
 
                             <EditText
                                 android:id="@+id/user"
@@ -68,12 +68,14 @@
                                 android:background="@drawable/rounded_text"
                                 android:autofillHints="@string/Email"/>
                         </com.google.android.material.textfield.TextInputLayout>
-
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/textInputLayout2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp">
+                            android:layout_marginTop="35dp">
 
                             <EditText
                                 android:id="@+id/pass"
@@ -87,25 +89,28 @@
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="20dp"
+                            android:gravity="right">
+                            <Button
+                                android:layout_marginTop="50dp"
+                                android:id="@+id/showHideBtn"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:background="@drawable/show_pass"/>
+                        </LinearLayout>
+                        </RelativeLayout>
+
                         <Button
                             android:id="@+id/loginBtn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
+                            android:layout_marginTop="35dp"
                             android:textStyle="bold"
                             android:textSize="16sp"
                             android:text="@string/loginbutton"/>
-
-                        <TextView
-                            android:id="@+id/tvresNik"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text=""/>
-                        <TextView
-                            android:id="@+id/tvresPass"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text=""/>
 
                     </LinearLayout>
                 </FrameLayout>

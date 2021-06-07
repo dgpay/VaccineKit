@@ -70,6 +70,7 @@
                     android:layout_marginTop="30dp">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardHome"
                         android:layout_width="160dp"
                         android:layout_height="160dp"
                         android:layout_margin="20dp"
@@ -106,6 +107,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardLost"
                         android:layout_width="160dp"
                         android:layout_height="160dp"
                         android:clickable="true"
@@ -127,13 +129,13 @@
                             <ImageView
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
-                                android:src="@drawable/lost_report_icon"
+                                android:src="@drawable/ic_baseline_document_scanner_24"
                                 android:layout_alignParentTop="true"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/lost_report"
+                                android:text="@string/scan_barcode"
                                 android:textColor="@color/black"
                                 android:textSize="18dp"
                                 android:textStyle="bold"
@@ -153,6 +155,7 @@
                     android:gravity="center">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardRegister"
                         android:layout_width="160dp"
                         android:layout_height="160dp"
                         android:layout_margin="20dp"
