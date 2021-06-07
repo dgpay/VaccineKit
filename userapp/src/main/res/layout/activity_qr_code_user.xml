@@ -1,37 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/white_base"
     tools:context=".scanner.qrcode.QrCodeUserActivity"
     android:id="@+id/myqrcode">
 
-    <ImageView
-        android:id="@+id/img_qrcode"
-        android:layout_width="360dp"
-        android:layout_height="277dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="208dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
 
-    <TextView
-        android:layout_width="381dp"
-        android:layout_height="84dp"
-        android:text="Congratulation Here your new Barcode.."
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="381dp"
+                android:layout_height="84dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="30dp"
+                android:text="Congratulation Here your new Barcode.."
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center"
+        android:layout_marginBottom="40dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/img_qrcode"
+            android:layout_width="411dp"
+            android:layout_height="308dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            app:srcCompat="@drawable/ic_launcher_background" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:paddingLeft="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Information"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:paddingRight="30dp"
+                android:paddingLeft="30dp"
+                android:textSize="30sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gotbraclete"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+             android:id="@+id/waymap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/waymap" />
+
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</ScrollView>
