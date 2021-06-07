@@ -39,7 +39,7 @@ After working for approximately one month our team can make the face recognition
 <img src="https://user-images.githubusercontent.com/57925757/121058258-565ad480-c7ea-11eb-8e3a-ea41491c328f.jpg" height="400" width="650" >
 
 ### Download APK
-* [Download](https://drive.google.com/drive/folders/1bfGIWFpcsKC_y2QvJlkXJYKZh5C6Ac_a?usp=sharing)
+* [Download](https://drive.google.com/drive/folders/1bQDELZDOr4DviqBM4m7H_vdcRlNdTzfs?usp=sharing)
 
 <!-- GETTING STARTED -->
 ### USAGE
