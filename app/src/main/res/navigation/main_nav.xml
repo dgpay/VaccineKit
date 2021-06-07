@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_insert"
-        android:name="academy.bangkit.project.capstone.vaccinekit.regisforuser.RegisUserFragment"
-        android:label="Add User"
-        tools:layout="@layout/fragment_regis_user" />
+        android:name="academy.bangkit.project.capstone.vaccinekit.regisforuser.UserRegisterActivity"
+        android:label="activity_user_register"
+        tools:layout="@layout/activity_user_register" />
     <activity
         android:id="@+id/nav_lost"
         android:name="academy.bangkit.project.capstone.vaccinekit.checkvaccine.ScannerBarcodeActivity"
