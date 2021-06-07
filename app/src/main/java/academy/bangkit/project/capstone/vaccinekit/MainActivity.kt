@@ -2,6 +2,7 @@ package academy.bangkit.project.capstone.vaccinekit
 
 import academy.bangkit.project.capstone.vaccinekit.auth.LoginActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityMainBinding
+import academy.bangkit.project.capstone.vaccinekit.regisforuser.UserRegisterActivity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -36,12 +38,24 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_home,
-            R.id.nav_insert,
             R.id.nav_lost
         ), binding.drawerLayout)
 
         setupActionBarWithNavController(findNavController(R.id.nav_host_fragment), appBarConfiguration)
         binding.navView.setupWithNavController(findNavController(R.id.nav_host_fragment))
+
+        binding.navView.menu.findItem(R.id.nav_insert).setCheckable(false)
+        binding.navView.menu.findItem(R.id.nav_insert).setOnMenuItemClickListener { item ->
+            when(item.itemId){
+                R.id.nav_insert ->{
+                    binding.drawerLayout.close()
+                    val Intent = Intent(this, UserRegisterActivity::class.java)
+                    startActivity(Intent)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

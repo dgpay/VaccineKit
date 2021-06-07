@@ -3,7 +3,6 @@ package academy.bangkit.project.capstone.vaccinekit.home
 import academy.bangkit.project.capstone.vaccinekit.MainActivity
 import academy.bangkit.project.capstone.vaccinekit.checkvaccine.ScannerBarcodeActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentHomeBinding
-import academy.bangkit.project.capstone.vaccinekit.regisforuser.RegisUserFragment
 import academy.bangkit.project.capstone.vaccinekit.regisforuser.UserRegisterActivity
 import android.content.Intent
 import android.os.Bundle
