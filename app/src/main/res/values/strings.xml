@@ -43,5 +43,6 @@
     <string name="birth_date">Birth Date</string>
     <string name="email">Email</string>
     <string name="show">show</string>
+    <string name="scan_barcode">Scan Barcode</string>
 
 </resources>
