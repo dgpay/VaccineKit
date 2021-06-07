@@ -20,7 +20,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VaccineKit"
         android:usesCleartextTraffic="true">
-        <activity android:name=".auth.RegisterActivity"></activity>
+        <activity android:name=".regisforuser.UserRegisterActivity"></activity>
+        <activity android:name=".auth.RegisterActivity" />
         <activity android:name=".checkvaccine.ScannerBarcodeActivity" />
         <activity android:name=".regisforuser.UploadActivity" />
         <activity android:name=".SplashScreenActivity">

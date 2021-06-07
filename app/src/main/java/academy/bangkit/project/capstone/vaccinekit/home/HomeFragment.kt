@@ -4,6 +4,7 @@ import academy.bangkit.project.capstone.vaccinekit.MainActivity
 import academy.bangkit.project.capstone.vaccinekit.checkvaccine.ScannerBarcodeActivity
 import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentHomeBinding
 import academy.bangkit.project.capstone.vaccinekit.regisforuser.RegisUserFragment
+import academy.bangkit.project.capstone.vaccinekit.regisforuser.UserRegisterActivity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -39,8 +40,9 @@ class HomeFragment : Fragment() {
             }
         }
         binding.cardRegister.setOnClickListener{
+
             activity?.let{
-                val intent = Intent (it, RegisUserFragment::class.java)
+                val intent = Intent (it, UserRegisterActivity::class.java)
                 it.startActivity(intent)
             }
         }
