@@ -2,7 +2,6 @@ package academy.bangkit.project.capstone.vaccinekit.regisforuser
 
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityUploadBinding
 import academy.bangkit.project.capstone.vaccinekit.databinding.ActivityUserRegisterBinding
-import academy.bangkit.project.capstone.vaccinekit.databinding.FragmentRegisUserBinding
 import android.content.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
