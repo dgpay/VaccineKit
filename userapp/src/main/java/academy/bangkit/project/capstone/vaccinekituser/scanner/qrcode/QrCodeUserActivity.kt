@@ -1,6 +1,8 @@
 package academy.bangkit.project.capstone.vaccinekituser.scanner.qrcode
 
+import academy.bangkit.project.capstone.vaccinekituser.MainActivity
 import academy.bangkit.project.capstone.vaccinekituser.databinding.ActivityQrCodeUserBinding
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -24,6 +26,11 @@ class QrCodeUserActivity : AppCompatActivity() {
 
         val intent = intent.getStringExtra(EXTRA_DATA)
         generateQr(intent.toString())
+
+        binding.btnDone.setOnClickListener{
+            val intent = Intent (this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

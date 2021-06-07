@@ -62,6 +62,13 @@
                 android:text="Information"
                 android:layout_marginBottom="15dp"/>
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/waymap"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/waymap" />
+
             <TextView
                 android:paddingRight="30dp"
                 android:paddingLeft="30dp"
@@ -70,13 +77,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/gotbraclete"/>
 
-        <com.airbnb.lottie.LottieAnimationView
-             android:id="@+id/waymap"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/waymap" />
-
+            <Button
+                android:layout_marginTop="28dp"
+                android:id="@+id/btn_done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="@string/done" />
 
         </LinearLayout>
 
